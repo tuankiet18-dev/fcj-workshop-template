@@ -1,58 +1,22 @@
 ---
-title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+title: "Tuần 12 Báo cáo công việc"
+date: 2026-01-01
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-### Mục tiêu tuần 12:
+### Tuần 12 Mục tiêu:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Asynchronous Processing: AWS SQS integration.
+* Frontend UX for async flows and smart polling.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+|  | Báo cáo công việc — 23/03/2026<br><br>Main goal: Run real-world tests for high-volume invoice batch processing and optimize the Frontend–Backend architecture.<br><br>- Frontend optimization (UploadInvoice.tsx) &amp; network bottleneck handling<br>	- Identified why Auto Scaling was not kicking in: the frontend was uploading files sequentially, so SQS could not build up a queue.<br>	- Rewrote the upload flow to run concurrent uploads using Promise.all() plus a semaphore-based chunking mechanism, limiting to a maximum of 4 parallel connections to avoid hitting the browser connection limit.<br>	- Implemented Smart Polling:<br>		- Added a 15-second delay before the first OCR status check.<br>		- Increased the polling interval to 5 seconds to reduce noisy SELECT queries against the database.<br><br>- Backend worker flow refactor (OcrWorkerService.cs)<br>	- Fixed the worker “greediness” by lowering MaxNumberOfMessages from 10 to 2 so messages are released back to SQS more fairly.<br>	- Controlled in-container parallelism with SemaphoreSlim(2, 2) to prevent local RAM pressure and reduce timeouts (over 180 seconds) on the first file during cold start. | 23/03/2026 | 23/03/2026 |  |
+|  | Báo cáo công việc — 24/03/2026<br><br>Main goal: Debug the OCR pipeline via AWS logs, address out-of-memory (OOM) issues during AI fallback, and upgrade AWS ECS Fargate configuration.<br><br>- CloudWatch alarms &amp; Auto Scaling adjustments<br>	- Investigated desynchronization between SQS depth and ECS Auto Scaling.<br>	- Reconfigured the CloudWatch alarm to trigger when ApproximateNumberOfMessagesVisible &gt;= 2 for 1 minute, so scaling matches the worker throughput and ECS spins up additional tasks at the right time.<br><br>- AI API incident (Gemini rate limit &amp; fallback OOM)<br>	- Traced logs in Elastic Beanstalk and ECS and confirmed the system hit the free quota limit for the Gemini API (HTTP 429 RESOURCE_EXHAUSTED).<br>	- Fixed the cascading failures (HTTP 500, 504 Gateway Timeout) when automatically falling back to the internal AI models (LayoutLMv3 + PaddleOCR).<br>		- Root cause: the internal model consumed too many resources and caused memory overflow (for example: PreconditionNotMetError: Tensor&#x27;s dimension is out of bound).<br><br>- AWS ECS Fargate infrastructure upgrade<br>	- Created a new revision of the task definition for smartinvoice-ocr-task.<br>	- Increased the task size from 1 vCPU / 2 GB RAM to 2 vCPU / 8 GB RAM to handle heavy image-matrix computation for the internal AI.<br>	- Removed container-level “virtual” limits (cleared Memory hard limit and Memory soft limit) to allow the OCR process to use the full allocated resources.<br>	- Rolled out the service update (rolling update) successfully without downtime. | 24/03/2026 | 24/03/2026 |  |
 
+### Tuần 12 Kết quả đạt được:
 
-### Kết quả đạt được tuần 12:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành các công việc đã đề ra trong tuần.
+* Hiểu sâu hơn về các dịch vụ AWS đã thực hành.

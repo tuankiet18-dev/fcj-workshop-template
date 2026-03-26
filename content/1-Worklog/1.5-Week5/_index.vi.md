@@ -1,59 +1,30 @@
 ---
-title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+title: "Tuần 5 Báo cáo công việc"
+date: 2026-01-01
+weight: 5
 chapter: false
-pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Tuần 5 Mục tiêu:
 
-### Mục tiêu tuần 5:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Cấu hình và đánh giá AWS Auto Scaling với các Dynamic Scaling Policy.
+- Thiết kế và triển khai chiến lược lưu trữ S3 dùng Access Points và Lifecycle Policies.
+- Thực hiện các thao tác VM Import/Export và cấu hình sao lưu tự động.
+- Thiết kế schema database và bảo mật backend (AWS Cognito) cho dự án SmartInvoice Shield.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                    |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | --------------------------------- |
+| 2   | AWS Lab: Cấu hình Auto Scaling Group (ASG) với Dynamic Scaling Policies dựa trên mức sử dụng CPU; thực hiện stress test bằng Apache Bench (ab) để kích hoạt scaling events; quản lý CloudFront distribution và xử lý cache invalidation.<br><br>Project Architecture: Thiết kế chiến lược lưu trữ S3 dùng Access Points để đơn giản hoá quản lý phân quyền; lập kế hoạch S3 Lifecycle Policies để chuyển dữ liệu hoá đơn cũ (> 3 tháng) sang S3 Standard-IA nhằm tiết kiệm chi phí. | 02/02/2026   | 02/02/2026      |                                   |
+| 3   | AWS Lab: Thử nghiệm VM Import/Export (VMware to AMI); ghi nhận bài học khi gặp lỗi CLIENT_ERROR: Unsupported kernel version do OS không tương thích và phân tích nguyên nhân; cấu hình AWS Backup Plans để tự động bảo vệ tài nguyên.<br><br>Tools: Thực hành AWS CloudShell để chạy lệnh AWS CLI mà không cần cấu hình local.                                                                                                                                                      | 03/02/2026   | 03/02/2026      |                                   |
+| 4   | FCJ Project (Database Design): Phân tích yêu cầu schema database cho dự án SmartInvoice Shield; cấu hình DbContext; viết migration scripts bằng Entity Framework Core; tạo các table trong PostgreSQL.                                                                                                                                                                                                                                                                              | 04/02/2026   | 04/02/2026      |                                   |
+| 5   | FCJ AWS Labs (Compute & Storage): Thực hành provision và cấu hình Amazon EC2 instances, thiết lập Security Groups; tạo và cấu hình Amazon S3 buckets, viết access control policies để chuẩn bị hạ tầng lưu trữ.                                                                                                                                                                                                                                                                     | 05/02/2026   | 05/02/2026      | https://000057.awsstudygroup.com/ |
+| 6   | FCJ Project (Backend Security): Nghiên cứu tài liệu AWS Cognito API và các thư viện tích hợp cho .NET 9; thiết lập middleware trong Program.cs để nhận và validate JWT tokens từ AWS Cognito.                                                                                                                                                                                                                                                                                       | 06/02/2026   | 06/02/2026      |                                   |
 
-### Kết quả đạt được tuần 5:
+### Tuần 5 Kết quả đạt được:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Triển khai thành công ASG có cơ chế dynamic scaling và kiểm thử bằng Apache Bench.
+- Tối ưu hóa chi phí lưu trữ S3 bằng Lifecycle Policies và quản lý quyền truy cập qua Access Points.
+- Có kinh nghiệm thực hành công cụ di chuyển VM và AWS CloudShell.
+- Hoàn tất migration database và tích hợp xác thực JWT với AWS Cognito.

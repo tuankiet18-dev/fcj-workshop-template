@@ -1,57 +1,26 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-01-01
+weight: 10
 chapter: false
-pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 10 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* AWS S3 Integration in .NET.
+* Backend Refactoring and Dependency Injection.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - FCJ Project - Authorization &amp; UI/UX<br>	- Triển khai Role-Based Access Control (RBAC) cho AppLayout và hệ thống routing ở frontend.<br>	- Thực thi Data Isolation (cô lập dữ liệu) cho các thành viên (Member) trên trang Dashboard và Validation.<br>	- Refactor lại các message báo lỗi validation từ backend để rõ ràng hơn.<br>	- Cải thiện giao diện trang UploadInvoice và tính năng row selection. | 09/03/2026 | 09/03/2026 |  |
+| 3 | - FCJ Project - System Architecture Configuration &amp; Bug Fixing<br>	- Configured system settings for the Super Admin panel.<br>	- Set up environment configurations for AI/OCR, Validation, AWS/Storage, and Security modules.<br>	- Investigated and resolved a PostgreSQL foreign key constraint error related to system configuration updates. | 10/03/2026 | 10/03/2026 |  |
+| 4 | - FCJ Project - AI OCR Integration &amp; Business Logic Validation<br>	- Integrated AI OCR JSON output into the system.<br>	- Defined and mapped out the data processing plan for extracted information.<br>	- Implemented data extraction and validated business logic specifically for image and PDF invoice uploads. | 11/03/2026 | 11/03/2026 |  |
+| 5 | - FCJ Project - Asynchronous Processing Implementation (AWS SQS)<br>	- Designed and implemented an asynchronous validation flow using AWS SQS to mitigate API timeout issues.<br>	- Applied the SQS Producer-Consumer pattern for message queuing.<br>	- Configured Polly policies for resilience and fault tolerance.<br>	- Implemented SemaphoreSlim to manage and control concurrent processing. | 12/03/2026 | 12/03/2026 |  |
+| 6 | - FCJ Project - Frontend UX for Asynchronous Flow (Phase 1)<br>	- Developed Phase 1 of the Frontend UX supporting the new asynchronous validation processes.<br>	- Implemented smart polling mechanisms to fetch validation results efficiently.<br>	- Added dynamic visual indicators to display real-time validation status to the end-user. | 13/03/2026 | 13/03/2026 |  |
+| 7 | - FCJ Project - Codebase Refactoring &amp; Data Merging Logic<br>	- Conducted major code refactoring across the backend services.<br>	- Implemented the complex logic for &quot;Invoice Dossier Merge&quot;, ensuring XML data accurately overrides OCR data when conflicts arise.<br>	- Performed general code cleanup to improve overall maintainability. | 14/03/2026 | 14/03/2026 |  |
 
 ### Week 10 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Completed the planned tasks for the week.
+* Gained deeper understanding of the integrated AWS services.

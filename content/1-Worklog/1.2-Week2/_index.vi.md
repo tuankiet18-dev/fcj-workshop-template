@@ -1,59 +1,29 @@
 ---
-title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+title: "Tuần 2 Báo cáo công việc"
+date: 2026-01-01
+weight: 2
 chapter: false
-pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Tuần 2 Mục tiêu:
 
-### Mục tiêu tuần 2:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Xác định đề tài dự án và nghiên cứu các dịch vụ AWS phù hợp để giải quyết bài toán kinh doanh.
+* Nắm vững kiến thức chuyên sâu về mạng (Networking) trên AWS: VPC, Subnets, Route Tables, IGW và NAT Gateway.
+* Thực hành triển khai EC2 server và thiết lập các lớp bảo mật mạng (Security Groups, NACLs).
+* Triển khai các giải pháp kết nối nâng cao bao gồm NAT Gateway và Site-to-Site VPN.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Chọn đề tài dự án<br>- Nghiên cứu chuyên sâu và thảo luận để xác minh business rules và các AWS services phù hợp cho project | 12/01/2026 | 12/01/2026 |  |
+| 3 | - Học về Subnets, Route Table, Internet Gateway (IGW), NAT Gateway, VPC và Security Controls (Security Groups, NACLs)<br>- Tạo và cấu hình Security Group cho public subnet, private subnet và VPC endpoint | 13/01/2026 | 13/01/2026 | <https://000003.awsstudygroup.com/> |
+| 4 | - Tạo EC2 server và kiểm tra kết nối giữa EC2 public và EC2 private qua SSH bằng key pair | 14/01/2026 | 14/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.1-createec2/> |
+| 5 | - Tạo NAT Gateway để EC2 private có thể kết nối Internet | 15/01/2026 | 15/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.3-natgateway/> |
+| 6 | Thiết lập kết nối Site-to-Site VPN trên AWS:<br>- Tạo môi trường VPN (tạo VPC cho VPN và EC2 làm Customer Gateway)<br>- Cấu hình VPN Connection (tạo Virtual Private Gateway, tạo VPN Connection, tạo Customer Gateway và cấu hình Customer Gateway) | 16/01/2026 | 16/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/> |
 
+### Tuần 2 Kết quả đạt được:
 
-### Kết quả đạt được tuần 2:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Đề tài dự án đã được phê duyệt với danh sách các dịch vụ AWS tối ưu cho việc triển khai.
+* Xây dựng thành công cấu trúc mạng VPC chuẩn với các lớp bảo mật chặt chẽ.
+* Thiết lập được kết nối SSH an toàn giữa các phân vùng mạng và cho phép private EC2 truy cập internet.
+* Hoàn thành cấu hình Site-to-Site VPN, nắm vững cách thức kết nối giữa các môi trường mạng khác nhau.

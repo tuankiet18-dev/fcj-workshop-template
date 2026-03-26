@@ -1,59 +1,26 @@
 ---
-title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+title: "Tuần 10 Báo cáo công việc"
+date: 2026-01-01
+weight: 10
 chapter: false
-pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Tuần 10 Mục tiêu:
 
-### Mục tiêu tuần 10:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* AWS S3 Integration in .NET.
+* Backend Refactoring and Dependency Injection.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - FCJ Project - Authorization &amp; UI/UX<br>	- Triển khai Role-Based Access Control (RBAC) cho AppLayout và hệ thống routing ở frontend.<br>	- Thực thi Data Isolation (cô lập dữ liệu) cho các thành viên (Member) trên trang Dashboard và Validation.<br>	- Refactor lại các message báo lỗi validation từ backend để rõ ràng hơn.<br>	- Cải thiện giao diện trang UploadInvoice và tính năng row selection. | 09/03/2026 | 09/03/2026 |  |
+| 3 | - FCJ Project - System Architecture Configuration &amp; Bug Fixing<br>	- Configured system settings for the Super Admin panel.<br>	- Set up environment configurations for AI/OCR, Validation, AWS/Storage, and Security modules.<br>	- Investigated and resolved a PostgreSQL foreign key constraint error related to system configuration updates. | 10/03/2026 | 10/03/2026 |  |
+| 4 | - FCJ Project - AI OCR Integration &amp; Business Logic Validation<br>	- Integrated AI OCR JSON output into the system.<br>	- Defined and mapped out the data processing plan for extracted information.<br>	- Implemented data extraction and validated business logic specifically for image and PDF invoice uploads. | 11/03/2026 | 11/03/2026 |  |
+| 5 | - FCJ Project - Asynchronous Processing Implementation (AWS SQS)<br>	- Designed and implemented an asynchronous validation flow using AWS SQS to mitigate API timeout issues.<br>	- Applied the SQS Producer-Consumer pattern for message queuing.<br>	- Configured Polly policies for resilience and fault tolerance.<br>	- Implemented SemaphoreSlim to manage and control concurrent processing. | 12/03/2026 | 12/03/2026 |  |
+| 6 | - FCJ Project - Frontend UX for Asynchronous Flow (Phase 1)<br>	- Developed Phase 1 of the Frontend UX supporting the new asynchronous validation processes.<br>	- Implemented smart polling mechanisms to fetch validation results efficiently.<br>	- Added dynamic visual indicators to display real-time validation status to the end-user. | 13/03/2026 | 13/03/2026 |  |
+| 7 | - FCJ Project - Codebase Refactoring &amp; Data Merging Logic<br>	- Conducted major code refactoring across the backend services.<br>	- Implemented the complex logic for &quot;Invoice Dossier Merge&quot;, ensuring XML data accurately overrides OCR data when conflicts arise.<br>	- Performed general code cleanup to improve overall maintainability. | 14/03/2026 | 14/03/2026 |  |
 
+### Tuần 10 Kết quả đạt được:
 
-### Kết quả đạt được tuần 10:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành các công việc đã đề ra trong tuần.
+* Hiểu sâu hơn về các dịch vụ AWS đã thực hành.
