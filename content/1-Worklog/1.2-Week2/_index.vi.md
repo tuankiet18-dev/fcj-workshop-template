@@ -15,11 +15,11 @@ chapter: false
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Chọn đề tài dự án<br>- Nghiên cứu chuyên sâu và thảo luận để xác minh business rules và các AWS services phù hợp cho project | 12/01/2026 | 12/01/2026 |  |
-| 3 | - Học về Subnets, Route Table, Internet Gateway (IGW), NAT Gateway, VPC và Security Controls (Security Groups, NACLs)<br>- Tạo và cấu hình Security Group cho public subnet, private subnet và VPC endpoint | 13/01/2026 | 13/01/2026 | <https://000003.awsstudygroup.com/> |
-| 4 | - Tạo EC2 server và kiểm tra kết nối giữa EC2 public và EC2 private qua SSH bằng key pair | 14/01/2026 | 14/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.1-createec2/> |
-| 5 | - Tạo NAT Gateway để EC2 private có thể kết nối Internet | 15/01/2026 | 15/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.3-natgateway/> |
-| 6 | Thiết lập kết nối Site-to-Site VPN trên AWS:<br>- Tạo môi trường VPN (tạo VPC cho VPN và EC2 làm Customer Gateway)<br>- Cấu hình VPN Connection (tạo Virtual Private Gateway, tạo VPN Connection, tạo Customer Gateway và cấu hình Customer Gateway) | 16/01/2026 | 16/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/> |
+| 2 | **Xác định Dự án:**<br>• Chọn đề tài dự án và nghiên cứu dịch vụ AWS phù hợp<br>• Thảo luận để xác minh các quy tắc kinh doanh (business rules) | 12/01/2026 | 12/01/2026 |  |
+| 3 | **Nền tảng Mạng (VPC):**<br>• Học về Subnets, Route Table, IGW, NAT Gateway, VPC<br>• Cấu hình Security Groups và NACLs để cô lập mạng | 13/01/2026 | 13/01/2026 | <https://000003.awsstudygroup.com/> |
+| 4 | **Tính toán & Kết nối:**<br>• Tạo EC2 server và kiểm tra kết nối SSH giữa public và private subnet | 14/01/2026 | 14/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.1-createec2/> |
+| 5 | **Triển khai NAT Gateway:**<br>• Thiết lập NAT Gateway để các instance trong private subnet có thể kết nối Internet | 15/01/2026 | 15/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.3-natgateway/> |
+| 6 | **Kết nối Site-to-Site VPN:**<br>• Thiết lập Site-to-Site VPN trên AWS<br>• Cấu hình Virtual Private Gateway và Customer Gateway | 16/01/2026 | 16/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/> |
 
 ### Tuần 2 Kết quả đạt được:
 

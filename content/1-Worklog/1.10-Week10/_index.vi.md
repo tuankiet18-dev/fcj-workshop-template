@@ -7,20 +7,22 @@ chapter: false
 
 ### Tuần 10 Mục tiêu:
 
-* AWS S3 Integration in .NET.
-* Backend Refactoring and Dependency Injection.
+* Thực hiện đại tu UI/UX toàn diện sử dụng Tailwind CSS và Ant Design để hiện đại hóa giao diện ứng dụng.
+* Tái cấu trúc quy trình xử lý AI OCR nhằm đạt khả năng tương thích cao với AWS Fargate Serverless (chuyển sang CPU-only).
+* Nâng cao tính minh bạch của việc xác thực hóa đơn với component BusinessValidationSummary và tính năng theo dõi lịch sử phiên bản.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - FCJ Project - Authorization &amp; UI/UX<br>	- Triển khai Role-Based Access Control (RBAC) cho AppLayout và hệ thống routing ở frontend.<br>	- Thực thi Data Isolation (cô lập dữ liệu) cho các thành viên (Member) trên trang Dashboard và Validation.<br>	- Refactor lại các message báo lỗi validation từ backend để rõ ràng hơn.<br>	- Cải thiện giao diện trang UploadInvoice và tính năng row selection. | 09/03/2026 | 09/03/2026 |  |
-| 3 | - FCJ Project - System Architecture Configuration &amp; Bug Fixing<br>	- Configured system settings for the Super Admin panel.<br>	- Set up environment configurations for AI/OCR, Validation, AWS/Storage, and Security modules.<br>	- Investigated and resolved a PostgreSQL foreign key constraint error related to system configuration updates. | 10/03/2026 | 10/03/2026 |  |
-| 4 | - FCJ Project - AI OCR Integration &amp; Business Logic Validation<br>	- Integrated AI OCR JSON output into the system.<br>	- Defined and mapped out the data processing plan for extracted information.<br>	- Implemented data extraction and validated business logic specifically for image and PDF invoice uploads. | 11/03/2026 | 11/03/2026 |  |
-| 5 | - FCJ Project - Asynchronous Processing Implementation (AWS SQS)<br>	- Designed and implemented an asynchronous validation flow using AWS SQS to mitigate API timeout issues.<br>	- Applied the SQS Producer-Consumer pattern for message queuing.<br>	- Configured Polly policies for resilience and fault tolerance.<br>	- Implemented SemaphoreSlim to manage and control concurrent processing. | 12/03/2026 | 12/03/2026 |  |
-| 6 | - FCJ Project - Frontend UX for Asynchronous Flow (Phase 1)<br>	- Developed Phase 1 of the Frontend UX supporting the new asynchronous validation processes.<br>	- Implemented smart polling mechanisms to fetch validation results efficiently.<br>	- Added dynamic visual indicators to display real-time validation status to the end-user. | 13/03/2026 | 13/03/2026 |  |
-| 7 | - FCJ Project - Codebase Refactoring &amp; Data Merging Logic<br>	- Conducted major code refactoring across the backend services.<br>	- Implemented the complex logic for &quot;Invoice Dossier Merge&quot;, ensuring XML data accurately overrides OCR data when conflicts arise.<br>	- Performed general code cleanup to improve overall maintainability. | 14/03/2026 | 14/03/2026 |  |
+| 2 | **Dự án - Đại tu UI/UX & Luồng Auth:**<br>• Cập nhật UI/UX lớn trên toàn bộ ứng dụng<br>• Thiết kế lại Landing Page, Login và Register flows<br>• Tích hợp Tailwind CSS và Ant Design cho phong cách hiện đại | 16/03/2026 | 16/03/2026 |  |
+| 3 | **Dự án - Tinh chỉnh Kiến trúc:**<br>• Tiếp tục tinh chỉnh kiến trúc backend cho hệ thống SmartInvoice Shield<br>• Tối ưu hóa phân phối tài nguyên cho các dịch vụ AWS | 17/03/2026 | 17/03/2026 |  |
+| 4 | **Dự án - Xác thực Business & UX:**<br>• Xây dựng component BusinessValidationSummary hiển thị lỗi hóa đơn<br>• Tối ưu UI Chi tiết hóa đơn: Gộp tab "Kiểm tra" và "Rủi ro" thành tab "Kết quả kiểm tra"<br>• Tích hợp Quản lý Phiên bản và Banner cảnh báo hóa đơn bị thay thế<br>• Cải thiện UX: Ẩn ErrorCode kỹ thuật; Fix bug hiển thị trạng thái và casing JSON | 18/03/2026 | 18/03/2026 |  |
+| 5 | **Dự án - Tối ưu Hạ tầng AWS:**<br>• Hoàn tất thiết kế Event-Driven Architecture tối ưu chi phí trên AWS<br>• Tích hợp Amazon SQS để xử lý OCR và VietQR bất đồng bộ<br>• Cấu hình bảo mật và monitoring: SSL/TLS (ACM), Route 53 và CloudWatch Alarms | 19/03/2026 | 19/03/2026 |  |
+| 6 | **Dự án - Refactor AI Container (Fargate):**<br>• Xử lý lỗi thiếu thư viện CUDA (libcublas.so) trong container<br>• Chuyển đổi Dockerfile OCR từ GPU (8GB) sang CPU-only (1.5GB)<br>• Sử dụng paddlepaddle và torch bản CPU-only để tương thích 100% với AWS Fargate | 20/03/2026 | 20/03/2026 |  |
+| 7 | **Dự án - Phân tách OCR & Đồng bộ Validation:**<br>• Fix lỗi Python OCR trả về dữ liệu bị lỗi định dạng cho C#<br>• Giải quyết bug "Thoát sớm" trong InvoiceProcessorService.cs để ghi nhận đầy đủ lỗi<br>• Sửa lỗi hiển thị "Tổng tiền 0 VND" trên frontend và thêm cảnh báo thiếu XML | 21/03/2026 | 21/03/2026 |  |
 
 ### Tuần 10 Kết quả đạt được:
 
-* Hoàn thành các công việc đã đề ra trong tuần.
-* Hiểu sâu hơn về các dịch vụ AWS đã thực hành.
+* Giảm đáng kể kích thước container AI (từ 8GB xuống 1.5GB) giúp triển khai Fargate hiệu quả.
+* Tích hợp thành công xử lý bất đồng bộ qua SQS cho các luồng OCR và VietQR để giải quyết nút thắt cổ chai về hiệu suất.
+* Cải thiện độ chính xác dữ liệu bằng cách khắc phục các sai lệch trong phân tách OCR và tinh chỉnh logic xác thực backend.

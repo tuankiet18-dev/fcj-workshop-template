@@ -1,52 +1,27 @@
 ---
 title: "Week 7 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-01-01
+weight: 7
 chapter: false
-pre: " <b> 1.7. </b> "
 ---
 
 ### Week 7 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Design and implement API endpoints for Company data with security authorization.
+* Integrate AWS S3 storage into the .NET 9 backend for handling electronic invoices.
+* Refactor backend code to improve maintainability using Dependency Injection.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | **Tet Holiday:**<br>• Lunar New Year Holiday (Tet Holiday) | 23/02/2026 | 23/02/2026 |  |
+| 3 | **Tet Holiday:**<br>• Lunar New Year Holiday (Tet Holiday) | 24/02/2026 | 24/02/2026 |  |
+| 4 | **Project - API Development:**<br>• Implement basic C# endpoints for Company data<br>• Apply [Authorize] attribute and test security flow | 25/02/2026 | 25/02/2026 |  |
+| 5 | **Project - AWS S3 Integration:**<br>• Integrate AWS S3 SDK and handle file uploads<br>• Process and store S3 file URLs in database | 26/02/2026 | 26/02/2026 |  |
+| 6 | **Project - Backend Refactoring:**<br>• Refactor redundant invoice business logic<br>• Implement Dependency Injection for XML/S3 services | 27/02/2026 | 27/02/2026 |  |
 
 ### Week 7 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully developed and secured Company entity APIs using [Authorize] attributes.
+* Built a robust file upload pipeline to AWS S3, including format validation and database tracking.
+* Optimized the codebase by refactoring duplicate logic and implementing a clean DI architecture.

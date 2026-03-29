@@ -16,11 +16,11 @@ chapter: false
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | **• AWS Lab (Web Servers):** Triển khai LAMP Stack trên EC2; xử lý lỗi tương thích package giữa Amazon Linux 2 và Amazon Linux 2023; triển khai Node.js và cấu hình Inbound Rules cho port 5000.<br>**• Project (Analysis):** Phác thảo System Context Diagram; nghiên cứu XML Schema Definition (XSD) chính thức từ Cơ quan Thuế. | 26/01/2026 | 26/01/2026 |  |
-| 3 | **• Backend Development (MVP) – XML Validation:** Phát triển module validate XML bằng C#/.NET; tinh chỉnh file XSD để xử lý lỗi “Ambiguous Content Model”, hỗ trợ đa dạng định dạng hoá đơn.<br>**• Testing:** Chạy unit test với dữ liệu thực tế (hoá đơn học phí FPT University); xác minh parser xử lý cấu trúc XML phức tạp. | 27/01/2026 | 27/01/2026 |  |
-| 4 | **• Project (Compliance):** Triển khai logic rủi ro theo Quyết định 1510/QĐ-TCT; tách biệt luồng xử lý cho hoá đơn GTGT và hoá đơn bán hàng.<br>**• AWS Lab (S3 Automation):** Dùng Python (boto3) upload file lên Amazon S3; cấu hình IAM Access Key và Secret Key. | 28/01/2026 | 28/01/2026 | <https://000048.awsstudygroup.com/> |
-| 5 | **• Professional Development:** Tham gia AWS re:Invent Recap tại TP.HCM, cập nhật kiến thức AI/ML cho dự án.<br>**• Key Takeaways:** Tìm hiểu Amazon SageMaker Unified Studio, Amazon S3 Tables và Vector Embeddings cho semantic search. | 29/01/2026 | 29/01/2026 |  |
-| 6 | **• Development (C#):** Triển khai anti-spoofing; thêm logic phát hiện hoá đơn sinh bởi máy; sửa lỗi parse XML Namespace.<br>**• AWS Lab:** Dùng AWS Systems Manager (Session Manager) để truy cập instance an toàn; troubleshoot lỗi kết nối DB của Node.js app. | 30/01/2026 | 30/01/2026 |  |
+| 2 | **Web Server & Phân tích Dự án:**<br>• Triển khai LAMP Stack trên EC2<br>• Phác thảo System Context Diagram<br>• Nghiên cứu XML Schema Definition (XSD) | 26/01/2026 | 26/01/2026 |  |
+| 3 | **Phát triển Backend (XML):**<br>• Phát triển module validate XML bằng C#/.NET<br>• Tinh chỉnh XSD cho đa dạng định dạng hóa đơn<br>• Chạy unit test với dữ liệu thực tế | 27/01/2026 | 27/01/2026 |  |
+| 4 | **Tuân thủ & Tự động hóa S3:**<br>• Triển khai logic rủi ro (Quyết định 1510/QĐ-TCT)<br>• Tự động hóa upload S3 bằng Python (boto3) | 28/01/2026 | 28/01/2026 | <https://000048.awsstudygroup.com/> |
+| 5 | **Phát triển Chuyên môn:**<br>• Tham gia AWS re:Invent Recap tại TP.HCM<br>• Tìm hiểu SageMaker, S3 Tables và Vector Embeddings | 29/01/2026 | 29/01/2026 |  |
+| 6 | **Bảo mật & Sửa lỗi:**<br>• Triển khai chống giả mạo và nhận diện hóa đơn máy sinh<br>• Sử dụng AWS Systems Manager để truy cập an toàn | 30/01/2026 | 30/01/2026 |  |
 
 ### Tuần 4 Kết quả đạt được:
 

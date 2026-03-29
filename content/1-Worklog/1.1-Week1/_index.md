@@ -15,11 +15,11 @@ chapter: false
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Get to know FCJ members<br>- Read and take note of the internship unit's rules and regulations | 05/01/2026 | 05/01/2026 |  |
-| 3 | - Create AWS account<br>- Explore AWS Management Console and AWS CLI<br>- Set up AWS Budget to track/control costs | 06/01/2026 | 06/01/2026 |  |
-| 4 | - Overview of AWS and core service groups (Compute, Storage, Networking, Database, ...) to grasp the ecosystem | 07/01/2026 | 07/01/2026 |  |
-| 5 | - Complete Lab ("get 100$" milestone)<br>- Discuss project ideas with the team to unify implementation direction | 08/01/2026 | 08/01/2026 |  |
-| 6 | - Learn and practice AWS IAM: create IAM Groups and Users<br>- Perform role switching<br>- Clean up resources after practice to avoid costs/risks | 09/01/2026 | 09/01/2026 | <https://000002.awsstudygroup.com/> |
+| 2 | **Orientation & Integration:**<br>• Get to know FCJ members<br>• Read and take note of the internship unit's rules and regulations | 05/01/2026 | 05/01/2026 |  |
+| 3 | **AWS Foundation & Account Setup:**<br>• Create AWS account<br>• Explore AWS Management Console and AWS CLI<br>• Set up AWS Budget to track/control costs | 06/01/2026 | 06/01/2026 |  |
+| 4 | **AWS Ecosystem Overview:**<br>• Overview of AWS and core service groups (Compute, Storage, Networking, Database, ...) | 07/01/2026 | 07/01/2026 |  |
+| 5 | **Project Planning & Lab Milestone:**<br>• Complete Lab ("get 100$" milestone)<br>• Discuss project ideas with the team to unify implementation direction | 08/01/2026 | 08/01/2026 |  |
+| 6 | **AWS IAM (Security):**<br>• Learn and practice AWS IAM: create IAM Groups and Users<br>• Perform role switching<br>• Clean up resources after practice to avoid costs/risks | 09/01/2026 | 09/01/2026 | <https://000002.awsstudygroup.com/> |
 
 ### Week 1 Achievements:
 

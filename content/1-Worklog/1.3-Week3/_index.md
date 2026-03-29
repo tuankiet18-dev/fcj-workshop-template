@@ -15,11 +15,11 @@ chapter: false
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | Learn and practice VPN Connection using Strongswan with Transit Gateway, followed by resource cleanup:<br>- Create Customer Gateway (CGW), Transit Gateway, VPN Connection, Transit Gateway attachment, configure route tables, and configure CGW | 19/01/2026 | 19/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/5.3-vpnsitetosite-optional/> |
-| 3 | Learn compute essentials with Amazon EC2:<br>- Create VPC for Linux instance and VPC for Windows instance<br>- Create Security Groups for Linux and Windows<br>- Create EC2 Amazon Linux instance and perform connection to the Amazon Linux instance | 20/01/2026 | 20/01/2026 | <https://000004.awsstudygroup.com/2-prerequiste/> |
-| 4 | Learn basic Amazon EC2 and practice:<br>- Modify EC2 instance<br>- Create and manage EBS snapshots<br>- Create Custom AMI<br>- Launch instance from Custom AMI<br>- Remote desktop into EC2 Ubuntu | 21/01/2026 | 21/01/2026 | <https://000004.awsstudygroup.com/5-amazonec2basic/> |
-| 5 | Deploy AWS User Management Application on Amazon Linux:<br>- Install LAMP web server on Amazon Linux<br>- Install Node.js<br>- Deploy application | 22/01/2026 | 22/01/2026 | <https://000004.awsstudygroup.com/6-awsfcjmanagement-linux/> |
-| 6 | Deploy AWS User Management Application on Amazon EC2 Windows:<br>- Install XAMPP on Amazon Windows<br>- Install Node.js<br>- Deploy application | 23/01/2026 | 23/01/2026 | <https://000004.awsstudygroup.com/7-awsfcjmanagement-windows/> |
+| 2 | **VPN & Transit Gateway:**<br>• Practice VPN Connection using Strongswan with Transit Gateway<br>• Configure CGW, TGW, and Route Tables | 19/01/2026 | 19/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/5.3-vpnsitetosite-optional/> |
+| 3 | **EC2 Essentials (Linux & Windows):**<br>• Create dedicated VPCs and Security Groups for OS platforms<br>• Launch and connect to Amazon Linux instances | 20/01/2026 | 20/01/2026 | <https://000004.awsstudygroup.com/2-prerequiste/> |
+| 4 | **EC2 Management:**<br>• Create and manage EBS snapshots and Custom AMIs<br>• Launch instances from Custom AMIs<br>• Remote desktop into EC2 Ubuntu | 21/01/2026 | 21/01/2026 | <https://000004.awsstudygroup.com/5-amazonec2basic/> |
+| 5 | **App Deployment (Linux):**<br>• Deploy AWS User Management Application on Amazon Linux<br>• Install LAMP stack and Node.js | 22/01/2026 | 22/01/2026 | <https://000004.awsstudygroup.com/6-awsfcjmanagement-linux/> |
+| 6 | **App Deployment (Windows):**<br>• Deploy AWS User Management Application on Windows Server<br>• Install XAMPP and Node.js | 23/01/2026 | 23/01/2026 | <https://000004.awsstudygroup.com/7-awsfcjmanagement-windows/> |
 
 ### Week 3 Achievements:
 

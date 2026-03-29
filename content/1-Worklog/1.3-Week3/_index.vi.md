@@ -15,11 +15,11 @@ chapter: false
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | Học và thực hành VPN Connection dùng Strongswan với Transit Gateway, sau đó dọn dẹp tài nguyên (clean up resources):<br>- Tạo Customer Gateway (CGW), tạo Transit Gateway, tạo VPN Connection, tạo Transit Gateway attachment, cấu hình route table, cấu hình CGW | 19/01/2026 | 19/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/5.3-vpnsitetosite-optional/> |
-| 3 | Học compute essentials với Amazon EC2:<br>- Tạo VPC cho Linux instance và VPC cho Windows instance<br>- Tạo Security Group cho Linux và Windows<br>- Tạo EC2 Amazon Linux instance và thực hiện kết nối vào instance Amazon Linux | 20/01/2026 | 20/01/2026 | <https://000004.awsstudygroup.com/2-prerequiste/> |
-| 4 | Học Amazon EC2 cơ bản và thực hành:<br>- Chỉnh sửa (modify) EC2 instance<br>- Tạo và quản lý EBS snapshots<br>- Tạo Custom AMI<br>- Launch instance từ Custom AMI<br>- Remote desktop vào EC2 Ubuntu | 21/01/2026 | 21/01/2026 | <https://000004.awsstudygroup.com/5-amazonec2basic/> |
-| 5 | Triển khai AWS User Management Application trên Amazon Linux:<br>- Cài LAMP web server trên Amazon Linux<br>- Cài Node.js<br>- Deploy application | 22/01/2026 | 22/01/2026 | <https://000004.awsstudygroup.com/6-awsfcjmanagement-linux/> |
-| 6 | Triển khai AWS User Management Application trên Amazon EC2 Windows:<br>- Cài XAMPP trên Amazon Windows<br>- Cài Node.js<br>- Deploy application | 23/01/2026 | 23/01/2026 | <https://000004.awsstudygroup.com/7-awsfcjmanagement-windows/> |
+| 2 | **VPN & Transit Gateway:**<br>• Thực hành VPN Connection dùng Strongswan với Transit Gateway<br>• Cấu hình CGW, TGW và Route Tables | 19/01/2026 | 19/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/5.3-vpnsitetosite-optional/> |
+| 3 | **EC2 Cơ bản (Linux & Windows):**<br>• Tạo VPC và Security Groups riêng biệt cho từng hệ điều hành<br>• Khởi tạo và kết nối vào các instance Amazon Linux | 20/01/2026 | 20/01/2026 | <https://000004.awsstudygroup.com/2-prerequiste/> |
+| 4 | **Quản lý EC2:**<br>• Quản lý EBS snapshots và tạo Custom AMI<br>• Khởi tạo instance từ Custom AMI<br>• Remote desktop vào EC2 Ubuntu | 21/01/2026 | 21/01/2026 | <https://000004.awsstudygroup.com/5-amazonec2basic/> |
+| 5 | **Triển khai Ứng dụng (Linux):**<br>• Triển khai AWS User Management Application trên Amazon Linux<br>• Cài đặt LAMP stack và Node.js | 22/01/2026 | 22/01/2026 | <https://000004.awsstudygroup.com/6-awsfcjmanagement-linux/> |
+| 6 | **Triển khai Ứng dụng (Windows):**<br>• Triển khai AWS User Management Application trên Windows Server<br>• Cài đặt XAMPP và Node.js | 23/01/2026 | 23/01/2026 | <https://000004.awsstudygroup.com/7-awsfcjmanagement-windows/> |
 
 ### Tuần 3 Kết quả đạt được:
 

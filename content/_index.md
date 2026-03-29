@@ -5,13 +5,13 @@ weight: 1
 chapter: false
 ---
 
-    
 # Internship Report
 
 ### Student Information:
+
 &emsp; **Full Name:** Luong Tuan Kiet
 
-&emsp; **Phone Number:** 0888819044 
+&emsp; **Phone Number:** 0888819044
 
 &emsp; **Email:** kietboy8@gmail.com
 
@@ -27,7 +27,9 @@ chapter: false
 
 &emsp; **Internship Duration:** From 05/01/2026 to 18/04/2026
 
-![Your profile picture](/images/avatar.png)
+<p align="center">
+  <img src="/fcj-workshop-template/images/avt-aws.jpg" alt="Student Avatar" style="width: 450px; height: 600px; object-fit: cover; border: 3px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 20px;">
+</p>
 
 ### Report Content
 

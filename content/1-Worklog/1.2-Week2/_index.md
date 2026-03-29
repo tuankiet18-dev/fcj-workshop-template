@@ -15,11 +15,11 @@ chapter: false
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Select project topic<br>- In-depth research and discussion to verify business rules and suitable AWS services for the project | 12/01/2026 | 12/01/2026 |  |
-| 3 | - Learn about Subnets, Route Tables, Internet Gateway (IGW), NAT Gateway, VPC, and Security Controls (Security Groups, NACLs)<br>- Create and configure Security Groups for public subnets, private subnets, and VPC endpoints | 13/01/2026 | 13/01/2026 | <https://000003.awsstudygroup.com/> |
-| 4 | - Create EC2 servers and test connectivity between public/private EC2 via SSH using key pairs | 14/01/2026 | 14/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.1-createec2/> |
-| 5 | - Create NAT Gateway so that private EC2 instances can connect to the Internet | 15/01/2026 | 15/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.3-natgateway/> |
-| 6 | Set up Site-to-Site VPN connection on AWS:<br>- Create VPN environment (VPC for VPN and EC2 as Customer Gateway)<br>- Configure VPN Connection (create Virtual Private Gateway, VPN Connection, Customer Gateway, and configure Customer Gateway) | 16/01/2026 | 16/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/> |
+| 2 | **Project Definition:**<br>• Select project topic<br>• Research and verify business rules<br>• Identify suitable AWS services | 12/01/2026 | 12/01/2026 |  |
+| 3 | **Networking Foundations (VPC):**<br>• Learn about Subnets, Route Tables, IGW, NAT Gateway, VPC<br>• Configure Security Groups and NACLs for network isolation | 13/01/2026 | 13/01/2026 | <https://000003.awsstudygroup.com/> |
+| 4 | **Compute & Connectivity:**<br>• Create EC2 instances<br>• Test SSH connectivity between public and private subnets | 14/01/2026 | 14/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.1-createec2/> |
+| 5 | **NAT Gateway Implementation:**<br>• Deploy NAT Gateway for private instance internet access | 15/01/2026 | 15/01/2026 | <https://000003.awsstudygroup.com/4-createec2server/4.3-natgateway/> |
+| 6 | **Site-to-Site VPN:**<br>• Set up Site-to-Site VPN on AWS<br>• Configure Virtual Private Gateway and Customer Gateway | 16/01/2026 | 16/01/2026 | <https://000003.awsstudygroup.com/5-vpnsitetosite/> |
 
 ### Week 2 Achievements:
 

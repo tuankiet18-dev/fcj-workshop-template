@@ -7,20 +7,22 @@ chapter: false
 
 ### Tuần 9 Mục tiêu:
 
-* Core Business Logic: XML structure analysis and data mapping.
-* API Development: Company entity processing.
+* Triển khai các lớp bảo mật bao gồm RBAC ở Frontend và Cô lập dữ liệu (Data Isolation) cho các thành viên dự án.
+* Xây dựng và triển khai quy trình xử lý bất đồng bộ sử dụng AWS SQS để xử lý các tác vụ OCR và validate có độ trễ cao.
+* Phát triển logic hợp nhất dữ liệu phức tạp ("Invoice Dossier Merge") để đồng bộ hóa dữ liệu XML và dữ liệu trích xuất từ AI.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - FCJ Project - Backend &amp; API Development<br>	- Triển khai Invoice CRUD API và hệ thống Audit Logs ở backend.<br>	- Tối ưu hóa hiệu năng xử lý file XML cho hóa đơn.<br>	- Thiết lập và cấu hình các biến môi trường cho dự án.<br>	- Tổ chức quản lý Git branch (tạo branch mới từ dev để phát triển tính năng mới). | 02/03/2026 | 02/03/2026 |  |
-| 3 | - FCJ Project - API &amp; UI Enhancement<br>	- Phát triển logic backend cho chức năng filtering, pagination và RBAC.<br>	- Cải thiện UI/UX ở frontend cho phần quản lý hóa đơn.<br>	- Xử lý conflict code và merge nhánh thành công.<br>- Completed AWS Lab: Database Essentials with Amazon RDS<br>	- Key Technical Activities:<br>		- DB Instance Creation: Khởi tạo thành công Amazon RDS instance (PostgreSQL/SQL Server) phù hợp với cấu hình backend .NET của dự án.<br>		- Connectivity &amp; Security: Cấu hình Security Groups để kiểm soát inbound traffic, chỉ cho phép kết nối từ dải IP cụ thể hoặc từ Application Tier (EC2/Elastic Beanstalk).<br>		- Database Management: Thực hành kết nối và quản lý database thông qua công cụ quản lý (như pgAdmin hoặc SQL Server Management Studio) từ môi trường local.<br>		- Backup &amp; Monitoring: Thiết lập chế độ Automated Backups và theo dõi các chỉ số hiệu năng (CPU, RAM, Storage) qua Amazon CloudWatch. | 03/03/2026 | 03/03/2026 |  |
-| 4 | - FCJ Project - Cloud Infrastructure &amp; Security<br>	- Refactor hệ thống cấu hình: thay thế DotNetEnv bằng AWS Parameter Store để quản lý config bảo mật hơn.<br>	- Lên kế hoạch thiết kế Cloud Infrastructure trên AWS (VPC, RDS, S3, Cognito, ECS Fargate cho OCR, Elastic Beanstalk cho API, CloudWatch), đảm bảo tiêu chí Multi-AZ, tối ưu chi phí và bảo mật. | 04/03/2026 | 04/03/2026 |  |
-| 5 | - FCJ Project - Core Business Logic<br>	- Nghiên cứu và thiết kế luồng Validation 2 bước cho hệ thống hóa đơn.<br>	- Phát triển logic xác thực quyền sở hữu hóa đơn (kiểm tra MST người mua khớp với MST công ty).<br>	- Xử lý logic check trùng lặp hóa đơn và ngăn chặn việc lưu các hóa đơn lỗi (Rejected) thành rác dữ liệu (junk data) trong DB. | 05/03/2026 | 05/03/2026 |  |
-| 6 | - FCJ Project - Backend Implementation<br>	- Thực thi code cho phần logic Invoice Ownership Validation đã thiết kế.<br>	- Bổ sung các hành động quản lý bản nháp hóa đơn (draft management: submit/delete).<br>	- Review và merge feature validation này vào nhánh chính. | 06/03/2026 | 06/03/2026 |  |
-| 7 | - FCJ Project - Codebase Maintenance &amp; Team Collaboration<br>	- Dọn dẹp repository (xóa các file lock thừa như bun).<br>	- Review code và merge các Pull Request quan trọng từ team member (liên quan đến Invoice CRUD API, Dashboard UI, UI/UX của Risk Check và Audit Logs). | 07/03/2026 | 07/03/2026 |  |
+| 2 | **Dự án - Ủy quyền & UI/UX:**<br>• Triển khai Role-Based Access Control (RBAC) cho AppLayout và routing ở frontend<br>• Thực thi Data Isolation cho Member trên Dashboard và Validation<br>• Refactor thông báo lỗi validation từ backend<br>• Cải thiện giao diện UploadInvoice và tính năng chọn dòng | 09/03/2026 | 09/03/2026 |  |
+| 3 | **Dự án - Cấu hình Hạ tầng & Sửa lỗi:**<br>• Cấu hình các thiết lập cho Super Admin panel<br>• Thiết lập môi trường cho AI, Validation, S3 và Security<br>• Xử lý lỗi khóa ngoại PostgreSQL trong cập nhật cấu hình | 10/03/2026 | 10/03/2026 |  |
+| 4 | **Dự án - Tích hợp AI OCR & Xác thực Business:**<br>• Tích hợp kết quả JSON từ AI OCR vào hệ thống<br>• Phác thảo và triển khai luồng xử lý dữ liệu trích xuất<br>• Xác thực logic nghiệp vụ cho hóa đơn hình ảnh và PDF | 11/03/2026 | 11/03/2026 |  |
+| 5 | **Dự án - Xử lý Bất đồng bộ (AWS SQS):**<br>• Thiết kế và triển khai luồng validate bất đồng bộ qua SQS<br>• Áp dụng pattern Producer-Consumer và Polly policies<br>• Sử dụng SemaphoreSlim để kiểm soát xử lý đồng thời | 12/03/2026 | 12/03/2026 |  |
+| 6 | **Dự án - UI/UX cho Luồng Bất đồng bộ:**<br>• Phát triển Giai đoạn 1 của UI hỗ trợ quy trình bất đồng bộ<br>• Triển khai cơ chế smart polling để lấy kết quả hiệu quả<br>• Thêm các chỉ bảo trạng thái thời gian thực cho người dùng | 13/03/2026 | 13/03/2026 |  |
+| 7 | **Dự án - Tái cấu trúc & Hợp nhất Dữ liệu:**<br>• Tái cấu trúc lớn các dịch vụ backend và dọn dẹp code<br>• Triển khai logic "Hợp nhất Hồ sơ Hóa đơn" (XML ghi đè OCR) | 14/03/2026 | 14/03/2026 |  |
 
 ### Tuần 9 Kết quả đạt được:
 
-* Hoàn thành các công việc đã đề ra trong tuần.
-* Hiểu sâu hơn về các dịch vụ AWS đã thực hành.
+* Khắc phục thành công vấn đề timeout API bằng cách chuyển sang kiến trúc bất đồng bộ dựa trên SQS bền bỉ.
+* Nâng cao trải nghiệm người dùng với các chỉ báo trạng thái thời gian thực và cơ chế polling thông minh cho xử lý hàng loạt.
+* Củng cố bảo mật hệ thống và tính toàn vẹn dữ liệu thông qua RBAC, cô lập dữ liệu và xử lý lỗi chặt chẽ.

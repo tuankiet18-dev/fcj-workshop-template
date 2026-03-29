@@ -1,53 +1,27 @@
 ---
-title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+title: "Tuần 7 Báo cáo công việc"
+date: 2026-01-01
+weight: 7
 chapter: false
-pre: " <b> 1.7. </b> "
 ---
 
-### Mục tiêu tuần 7:
+### Tuần 7 Mục tiêu:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thiết kế và triển khai các API endpoint cho dữ liệu Công ty với cơ chế ủy quyền bảo mật.
+* Tích hợp lưu trữ AWS S3 vào backend .NET 9 để xử lý hóa đơn điện tử.
+* Refactor mã nguồn backend để cải thiện khả năng bảo trì bằng Dependency Injection.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | **Nghỉ Tết:**<br>• Nghỉ Tết Nguyên Đán (Lunar New Year Holiday) | 23/02/2026 | 23/02/2026 |  |
+| 3 | **Nghỉ Tết:**<br>• Nghỉ Tết Nguyên Đán (Lunar New Year Holiday) | 24/02/2026 | 24/02/2026 |  |
+| 4 | **Dự án - Phát triển API:**<br>• Triển khai các endpoint C# cho dữ liệu Công ty<br>• Áp dụng [Authorize] và kiểm tra luồng bảo mật | 25/02/2026 | 25/02/2026 |  |
+| 5 | **Dự án - Tích hợp AWS S3:**<br>• Tích hợp SDK AWS S3 và xử lý tải lên tệp tin<br>• Lưu trữ URL tệp tin S3 vào cơ sở dữ liệu | 26/02/2026 | 26/02/2026 |  |
+| 6 | **Dự án - Tái cấu trúc Backend:**<br>• Tái cấu trúc logic nghiệp vụ hóa đơn trùng lặp<br>• Áp dụng Dependency Injection cho các dịch vụ XML/S3 | 27/02/2026 | 27/02/2026 |  |
 
-### Kết quả đạt được tuần 7:
+### Tuần 7 Kết quả đạt được:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+* Phát triển và bảo mật thành công các API cho thực thể Company bằng thuộc tính [Authorize].
+* Xây dựng quy trình tải file lên AWS S3 mạnh mẽ, bao gồm kiểm tra định dạng và lưu vết vào cơ sở dữ liệu.
+* Tối ưu hóa codebase bằng cách tái cấu trúc logic trùng lặp và áp dụng kiến trúc DI sạch sẽ.

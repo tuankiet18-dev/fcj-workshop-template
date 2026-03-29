@@ -6,7 +6,9 @@ chapter: false
 ---
 
 # Báo cáo thực tập
+
 ### Thông tin sinh viên:
+
 &emsp; **Họ và tên:** Lương Tuấn Kiệt
 
 &emsp; **Số điện thoại:** 0888819044
@@ -25,9 +27,9 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 05/01/2026 đến ngày 18/04/2026
 
-![Ảnh đại diện của bạn](/images/avatar.png)
-
-
+<p align="center">
+  <img src="/fcj-workshop-template/images/avt-aws.jpg" alt="Student Avatar" style="width: 450px; height: 600px; object-fit: cover; border: 3px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-top: 20px;">
+</p>
 
 ### Nội dung báo cáo
 
