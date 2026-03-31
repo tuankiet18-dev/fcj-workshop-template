@@ -6,23 +6,35 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# SmartInvoice Shield — End-to-End Deployment on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+**SmartInvoice Shield** is a production-grade, cloud-native invoice management platform built on AWS. It uses AI-powered OCR to automatically extract key data from invoice images and PDFs, validates the results, and provides a secure web interface for users to review, merge, and manage invoices.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+In this workshop, you will deploy the complete SmartInvoice Shield architecture on AWS from scratch, covering networking, security, compute, storage, CI/CD, and monitoring.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+#### Architecture at a Glance
+
+The system is deployed across **2 Availability Zones** in `ap-southeast-1` (Singapore) and consists of:
+- **Frontend**: React + Vite hosted on AWS Amplify
+- **CDN / HTTPS Proxy**: CloudFront in front of the Backend ALB
+- **Backend API**: .NET 9 running on Elastic Beanstalk (private EC2 instances)
+- **OCR AI Service**: Python (FastAPI + LayoutLMv3/Gemini) on ECS Fargate
+- **Database**: RDS PostgreSQL 16 (Multi-AZ)
+- **Authentication**: Amazon Cognito User Pool
+- **Queuing**: Amazon SQS (OCR queue + VietQR queue)
+- **Storage**: Amazon S3 (private, Presigned URL access)
+- **Secrets**: SSM Parameter Store
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Architecture Overview](5.1-Architecture/)
+2. [Prerequisites](5.2-Prerequisite/)
+3. [Networking & Security](5.3-Networking-Security/)
+4. [Storage, Auth & Database](5.4-Storage-Database/)
+5. [Container Registry & Compute](5.5-Compute-Backend/)
+6. [Frontend & CloudFront Proxy](5.6-Frontend-Proxy/)
+7. [CI/CD & Monitoring](5.7-CICD-Monitoring/)
+8. [End-to-End Testing](5.8-Testing/)
+9. [Clean Up](5.9-Cleanup/)
