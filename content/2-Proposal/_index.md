@@ -1,112 +1,97 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-03-30
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# SmartInvoice Shield
+<h2 align="center">Electronic Invoice Risk Management & Auditing System on AWS</h2>
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+SmartInvoice Shield is a specialized SaaS (Software as a Service) system designed to provide a comprehensive solution for Vietnamese enterprises in managing and reviewing e-invoice risks. The platform automates data extraction from various invoice formats (XML, PDF, Images) via AI while executing a 3-layer compliance validation rule set (Structure, Digital Signature, Business Logic) based on Decree 123/2020/ND-CP. 
+
+By leveraging the power of AWS Serverless and Managed Services (Elastic Beanstalk, ECS Fargate, S3, RDS, Cognito, SQS), SmartInvoice Shield delivers low-latency automated processing for large data volumes, ensuring High Availability (Multi-AZ), operational cost optimization, and absolute security.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+***Current Problem***
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+In many enterprises, the incoming invoice processing workflow still relies 100% on manual data entry, consuming 5-10 minutes per invoice with an error rate of up to 15-20%. More severely, businesses face immense risks of mistakenly recording invoices from blacklisted companies, fake invoices, or mathematical discrepancies. Under Decision 78/QD-TCT, this brings heavy legal consequences (exclusion of deductible expenses, tax arrears). Existing software solutions mainly offer passive storage without active firewall mechanisms and early warnings.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+***The Solution***
+
+SmartInvoice Shield transforms manual workflows into fully automated processes with core features:
+- **Collection & Digitization:** Automatically extracts data from original XML invoices and utilizes an AI Engine (AWS ECS Fargate running PaddleOCR/VietOCR) to read and digitize PDF/Image files.
+- **3-Layer Validation:** (1) XSD Structure Validation; (2) Digital Signature Authentication & Anti-Spoofing; (3) Business logic verification (math, dates, and VietQR API integration for Tax Code status verification).
+- **Secure Storage & Auditing:** Infinite storage on Amazon S3 with AES-256 encryption. Data is protected by an immutable Audit Trail system to track all user changes.
+- **Transparency & Alerts:** The system assesses risks using a 3-level visual scale (Green/Yellow/Red), assisting Chief Accountants in making rapid approval decisions.
+
+***Business Value & Business Model***
+
+The system commits to helping businesses cut invoice processing time by 90% and prevent 100% of legal risks before tax filing. With a SaaS model, customers do not need to invest in hardware or IT personnel for operation. Instead, businesses can flexibly subscribe to **Service Packages (Subscriptions)** on a monthly/yearly basis depending on their actual invoice volume. This delivers an immediate Return on Investment (ROI) by completely eliminating administrative fine costs and optimizing the accounting department's time.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The project adopts a Hybrid Architecture combining a Layered Monolith (for the core Backend API) and Microservices (for the AI OCR service), communicating asynchronously via Message Queues.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+*AWS Services Utilized*
+- **AWS Elastic Beanstalk & ALB:** Provides the core Auto Scaling Group environment for the .NET 9 Backend API, deployed across Multi-AZ for High Availability.
+- **AWS ECS Fargate:** The AI processing heart, running as a Serverless Container (Pay-As-You-Go), automatically scaling to zero when there are no invoices to save 100% on idle costs.
+- **Amazon RDS for PostgreSQL:** Stores relational data (Multi-AZ) hidden in a Private Subnet, with data encrypted by KMS.
+- **Amazon S3:** Stores invoice files (XML, PDF) with SSE-S3 encryption. Integrates Lifecycle Policies to move old data (>90 days) to Glacier Deep Archive.
+- **Amazon SQS:** Handles asynchronous queues (Long-polling) for heavy workloads like OCR and tax code verification.
+- **AWS Amplify & CloudFront:** Hosting, automated CI/CD, and Edge CDN for the Frontend React SPA application.
+- **Amazon Cognito:** Manages identity (Identity Provider), issues JWT Tokens, and secures users according to international standards.
+- **AWS Systems Manager (Parameter Store):** An internal vault for securing sensitive information (Database Passwords, API Keys).
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+### 4. Technical Deployment
+*Deployment Phases*
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+The system is designed for end-to-end deployment on AWS through the following phases:
+1. **Networking & Security Setup:** Create a VPC with Public/Private Subnets across 2 AZs. Apply a cost-optimization strategy by eliminating NAT Gateways and locking down security entirely with Security Groups.
+2. **Database & Storage Deployment:** Initialize RDS PostgreSQL in the internal network, set up S3 Buckets, and register Docker Images on ECR.
+3. **Core & AI Services Deployment:** Launch ECS Fargate Spot for the OCR service and configure Elastic Beanstalk for the .NET Backend. Integrate Application Load Balancer.
+4. **Frontend & Domain Deployment:** Deploy React source code on AWS Amplify.
+5. **Monitoring & Management:** Set up CloudWatch Alarms (monitoring CPU, Queue depth, Storage) and SNS Topics for automated alerts.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+*Technical Requirements*
+- Mastery of the 5 pillars of the AWS Well-Architected Framework.
+- Effective application of Docker Containerization.
+- Deep understanding of XML data tree structures under Decision 1450/1510/QD-TCT and digital signature hashing algorithms.
 
-### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+### 5. Roadmap & Milestones
+The estimated execution time is 3 months (12 weeks) with a team of 5 members (2 Backend Developers, 2 AI Specialist, and 1 Cybersecurity Specialist):
+- **Week 1 - 4 (Research & Foundation):** The team focuses on in-depth learning and mastering core AWS services. Simultaneously, the team conducts requirements analysis, designs the System Architecture, and builds the Database Schema.
+- **Week 5 - 9 (Core Feature Development):** Starting the implementation of complex modules. Integrating the AI OCR model, building business logic APIs (3-layer validation), and establishing asynchronous communication via Amazon SQS.
+- **Week 10 - 12 (Cloud Deployment & Finalization):** Migrating the entire system from the local environment to the AWS Cloud (Production). Setting up CI/CD pipelines, conducting load testing, performing comprehensive security reviews, and finalizing project documentation.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+### 6. Estimated Budget
+The system applies a **Cost-Optimization Multi-AZ** strategy, eliminating redundant infrastructure components to maximize operational budget savings. Based on the AWS estimation, the costs are as follows:
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+*AWS Infrastructure Costs (Estimated Monthly)*
+- Amazon RDS PostgreSQL (APS1-InstanceUsage:db.t3.micro): ~$23.20
+- Amazon CloudFront: ~$2.34
+- AWS Elastic Beanstalk (EC2 & Application Load Balancer): ~$42.10
+- Amazon S3, SQS & Other Network Services: ~$2.00
+- AWS Amplify & Amazon Cognito: $0 (Under Free Tier)
+- ECS Fargate Spot (AI OCR): Flexible millisecond billing based on invoice processing (Pay-As-You-Go) (~$7.00).
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
-
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+*Total Estimated Cost:* **~$76.55/month** for a Production environment ready to serve enterprises.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+*Risk Matrix*
+- AI Recognition Errors (for blurry/torn images): Medium impact, medium probability.
+- Latency from 3rd-party APIs (VietQR API overload): Low impact, high probability.
+- Sudden Traffic Spikes (End-of-month tax filing): High impact, low probability.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+*Mitigation Strategy*
+- **For AI:** Provide a "Visual Diagnostic GUI" allowing accountants to compare extracted results with original documents for manual overrides.
+- **For External APIs:** Apply the Circuit Breaker design pattern and Retry Pattern with Exponential Backoff to prevent cascading failures.
+- **For Traffic:** Auto Scaling Groups to automatically increase EC2 instances (Max 4 nodes) and ECS Tasks (Max 10 tasks) based on the number of backlogged messages in SQS.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+*Contingency Plan:*
+Utilizing the Multi-AZ architecture allows the system to auto-failover when an Availability Zone (AZ) encounters a hardware failure. RDS data is automatically backed up (Point-In-Time Recovery) combined with 24/7 monitoring via CloudWatch Alarms.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+*Technical Improvements:* The system operates smoothly using an Event-Driven architecture, achieving P95 API latency of < 2s. AI extraction accuracy (Textract/VietOCR) is committed to exceeding 85% for complex Vietnamese invoices. Horizontal Scaling capabilities handle thousands of concurrent invoices.
+
+*Long-term Value:* Provides businesses with a solid "Shield" to digitally transform accounting operations. Completely eliminates physical errors, transparentizes the approval workflow, and builds a perfect data storage repository ready for any tax audits over the next 10 years.

@@ -1,35 +1,29 @@
 ---
 title: "Tự đánh giá"
 date: 2024-01-01
-weight: 6
+weight: 5
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> 5. </b> "
 ---
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
-
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+Trong suốt thời gian thực tập tại dự án **SmartInvoice Shield** từ tháng 01/2026 đến tháng 03/2026, tôi đã có cơ hội học hỏi và áp dụng các dịch vụ Cloud hàng đầu của AWS vào giải pháp quản lý hóa đơn thực tế.  
+Tôi đã trực tiếp tham gia xây dựng kiến trúc hạ tầng (VPC, ASG, RDS), tích hợp pipeline AI OCR và tối ưu hóa hệ thống để sẵn sàng cho môi trường sản xuất (Production).
 
 Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
 
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
+| STT | Tiêu chí | Đánh giá | Nhận xét |
+| --- | --- | --- | --- |
+| 1 | **Kiến thức chuyên môn** | ✅ Tốt | Nắm vững hệ sinh thái AWS (IAM, VPC, S3, SQS, RDS, Cognito) và tích hợp thành công với backend .NET 9. |
+| 2 | **Khả năng học hỏi** | ✅ Tốt | Tiếp thu nhanh các công nghệ mới về Cloud Native, tối ưu hóa pipeline AI và tự động hóa hạ tầng bằng Boto3. |
+| 3 | **Tính chủ động** | ✅ Tốt | Chủ động đề xuất giải pháp tối ưu hóa chi phí (Cloud Map) và nâng cao độ tin cậy của hệ thống (AI Fallback logic). |
+| 4 | **Kỷ luật** | ✅ Khá | Tuân thủ tốt lịch trình làm việc và quy trình triển khai, duy trì nhật ký công việc (worklog) đầy đủ hàng tuần. |
+| 5 | **Giao tiếp** | ✅ Khá | Trình bày giải pháp kỹ thuật rõ ràng, báo cáo tiến độ kịp thời và phối hợp tốt với các thành viên trong dự án. |
+| 6 | **Teamwork** | ✅ Tốt | Hợp tác hiệu quả giữa các mảng Backend, AI và Cloud để đảm bảo hệ thống vận hành trơn tru và đồng bộ. |
+| 7 | **Giải quyết vấn đề** | ✅ Tốt | Xử lý triệt để các lỗi triển khai trên Elastic Beanstalk, tối ưu hóa độ trễ OCR và quản lý di chuyển database an toàn. |
+| 8 | **Đóng góp cho dự án** | ✅ Tốt | Xây dựng thành công hệ thống SmartInvoice Shield ổn định, bảo mật cao và có khả năng mở rộng tốt trên môi trường AWS. |
 
 ### Cần cải thiện
 
-* Nâng cao tính kỹ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+- Nâng cao tính kỷ luật trong việc cập nhật tài liệu kỹ thuật ngay khi có thay đổi nhỏ trong hệ thống.
+- Cải thiện kỹ năng thuyết trình các mô hình kiến trúc phức tạp một cách trực quan và dễ hiểu hơn.
+- Tiếp tục học hỏi các dịch vụ Serverless nâng cao để tối ưu hóa hơn nữa kiến trúc ứng dụng trong tương lai.
