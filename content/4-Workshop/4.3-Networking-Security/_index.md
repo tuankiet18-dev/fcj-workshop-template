@@ -23,6 +23,8 @@ This section covers Steps 2–7 of the deployment: creating the VPC, subnets, in
 | IPv4 CIDR           | `10.0.0.0/16`      |
 | Tenancy             | Default            |
 
+![alt text](image.png)
+
 ### 2.2 Create 4 Subnets
 
 **Console**: VPC → **Subnets** → **Create subnet** (click **Add new subnet** to create all at once)
@@ -105,13 +107,16 @@ Wait for status Available (2–3 minutes).
 | HTTP    | 80   | `0.0.0.0/0` |
 | HTTPS   | 443  | `0.0.0.0/0` |
 
+![alt text](image-1.png)
+
 ### SG 2: Backend (`smartinvoice-backend-sg`)
 
-| Inbound     | Port | Source                |
-| ----------- | ---- | --------------------- |
-| Custom TCP  | 80   | `smartinvoice-alb-sg` |
-| Custom TCP  | 8080 | `smartinvoice-alb-sg` |
-| All Traffic | All  | Self (same SG)        |
+| Inbound    | Port | Source                |
+| ---------- | ---- | --------------------- |
+| HTTP       | 80   | `smartinvoice-alb-sg` |
+| Custom TCP | 8080 | `smartinvoice-alb-sg` |
+
+![alt text](image-4.png)
 
 ### SG 3: RDS (`smartinvoice-rds-sg`)
 
@@ -154,6 +159,8 @@ Grants EC2 instances in the Backend the right to access other AWS resources.
   - `AmazonEC2ContainerRegistryReadOnly`
   - `CloudWatchLogsFullAccess`
 
+![alt text](image-5.png)
+
 ### 7.2 EB Service Role (**aws-elasticbeanstalk-service-role**)
 
 Allows Elastic Beanstalk to call AWS services on your behalf.
@@ -162,6 +169,8 @@ Allows Elastic Beanstalk to call AWS services on your behalf.
 - **Policies** (auto-attached by AWS):
   - `AWSElasticBeanstalkEnhancedHealth`
   - `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
+
+![alt text](image-8.png)
 
 ### 7.3 ECS Execution Role (**ecsTaskExecutionRole**)
 

@@ -76,29 +76,33 @@ docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/smartinvoice-ocr:l
 
 **Console**: ECS → Clusters → **Create**
 
-| Trường          | Giá trị            |
-| ---------------- | ------------------ |
-| Cluster name     | `smartinvoice-cluster` |
-| Infrastructure   | **Fargate only**   |
+| Trường         | Giá trị                |
+| -------------- | ---------------------- |
+| Cluster name   | `smartinvoice-cluster` |
+| Infrastructure | **Fargate only**       |
 
 ### 14.2 Tạo Task Definition
 
 **Console**: ECS → Task definitions → **Create new task definition**
 
-| Trường          | Giá trị                                       |
-| ---------------- | --------------------------------------------- |
-| Family           | `smartinvoice-ocr-task`                       |
-| Launch type      | **AWS Fargate**                               |
-| OS/Architecture  | **Linux/X86_64**                              |
-| CPU              | `2 vCPU`                                      |
-| Memory           | `4 GB`                                        |
-| Task role        | `smartinvoice-ecs-task-role`                  |
-| Execution role   | `ecsTaskExecutionRole`                        |
-| Container name   | `ocr-container`                               |
-| Image URI        | ECR URI từ bước 13.4                          |
-| Port             | `5000`                                        |
-| Environment      | `DEVICE=cpu`, `HOST=0.0.0.0`, `PORT=5000`     |
-| Logs             | `awslogs` → `/ecs/smartinvoice-ocr-task`      |
+![alt text](image-1.png)
+
+| Trường          | Giá trị                                   |
+| --------------- | ----------------------------------------- |
+| Family          | `smartinvoice-ocr-task`                   |
+| Launch type     | **AWS Fargate**                           |
+| OS/Architecture | **Linux/X86_64**                          |
+| CPU             | `2 vCPU`                                  |
+| Memory          | `4 GB`                                    |
+| Task role       | `smartinvoice-ecs-task-role`              |
+| Execution role  | `ecsTaskExecutionRole`                    |
+| Container name  | `ocr-container`                           |
+| Image URI       | ECR URI từ bước 13.4                      |
+| Port            | `5000`                                    |
+| Environment     | `DEVICE=cpu`, `HOST=0.0.0.0`, `PORT=5000` |
+| Logs            | `awslogs` → `/ecs/smartinvoice-ocr-task`  |
+
+![alt text](image-4.png)
 
 ### 14.3 Tạo Cloud Map Namespace
 
@@ -107,11 +111,13 @@ docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/smartinvoice-ocr:l
 
 **Console**: AWS Cloud Map → **Create namespace**
 
-| Trường            | Giá trị                                      |
-| ----------------- | -------------------------------------------- |
-| Namespace name    | `smartinvoice.local`                         |
+| Trường             | Giá trị                                       |
+| ------------------ | --------------------------------------------- |
+| Namespace name     | `smartinvoice.local`                          |
 | Instance discovery | `API calls and DNS queries in VPCs` (Private) |
-| VPC               | `smartinvoice-vpc`                           |
+| VPC                | `smartinvoice-vpc`                            |
+
+![alt text](image-5.png)
 
 ### 14.4 Cấu hình Service Discovery cho OCR
 
@@ -124,7 +130,9 @@ Khi tạo Service ở bước tiếp theo, bạn sẽ kết nối nó với Name
 #### A. Compute configuration
 
 - **Compute options**: **Capacity provider strategy**
-- **Strategy**: **Use custom (Advanced)** → **Fargate** (Weight: 1, Base: 0)
+- **Strategy**: **Use custom (Advanced)** → **Fargate spot** (Tiết kiệm 50-70% chi phí) (Weight: 1, Base: 0)
+
+![alt text](image-7.png)
 
 #### B. Deployment configuration
 
@@ -134,12 +142,16 @@ Khi tạo Service ở bước tiếp theo, bạn sẽ kết nối nó với Name
 - **Desired tasks**: `2`
 - **Deployment controller**: **Rolling update**
 
+![alt text](image-10.png)
+
 #### C. Networking
 
 - **VPC**: `smartinvoice-vpc`
 - **Subnets**: Chọn cả 2 **Private** subnets (1a, 1b)
 - **Security group**: `smartinvoice-ocr-sg`
 - **Public IP**: ❌ **Turned off** (Bắt buộc vì nằm trong Private Subnet)
+
+![alt text](image-11.png)
 
 #### D. Load balancing & Service discovery
 
@@ -151,6 +163,8 @@ Khi tạo Service ở bước tiếp theo, bạn sẽ kết nối nó với Name
   - **DNS record type**: Chọn `A` record.
   - **TTL**: `15` / `60` seconds.
 
+![alt text](image-14.png)
+
 → Sau khi Service ở trạng thái `Running`, hãy cập nhật tham số `/SmartInvoice/prod/OCR_API_ENDPOINT` trong SSM thành `http://ocr.smartinvoice.local:5000`.
 
 ---
@@ -159,40 +173,48 @@ Khi tạo Service ở bước tiếp theo, bạn sẽ kết nối nó với Name
 
 ### 15.1 Bước 1: Cấu hình môi trường
 
-| Trường           | Giá trị                                      |
-| ---------------- | -------------------------------------------- |
-| Environment tier | **Web server environment**                   |
-| Application name | `Smartinvoice-api`                           |
-| Environment name | `Smartinvoice-api-env`                       |
-| Platform         | **Docker**                                   |
-| Platform branch  | **Docker running on 64bit Amazon Linux 2023**|
-| Application code | **Sample application** (CI/CD sẽ đẩy code sau)|
-| Presets          | **Single instance**                          |
+| Trường           | Giá trị                                        |
+| ---------------- | ---------------------------------------------- |
+| Environment tier | **Web server environment**                     |
+| Application name | `Smartinvoice-api`                             |
+| Environment name | `Smartinvoice-api-env`                         |
+| Platform         | **Docker**                                     |
+| Platform branch  | **Docker running on 64bit Amazon Linux 2023**  |
+| Application code | **Sample application** (CI/CD sẽ đẩy code sau) |
+| Presets          | **Single instance**                            |
+
+![alt text](image-16.png)
 
 ### 15.2 Bước 2: Service Access
 
-| Trường | Giá trị |
-|---|---|
-| Service role | `aws-elasticbeanstalk-service-role` |
-| EC2 instance profile | `aws-elasticbeanstalk-ec2-role` |
+| Trường               | Giá trị                             |
+| -------------------- | ----------------------------------- |
+| Service role         | `aws-elasticbeanstalk-service-role` |
+| EC2 instance profile | `aws-elasticbeanstalk-ec2-role`     |
+
+![alt text](image-17.png)
 
 ### 15.3 Bước 3: Mạng
 
-| Trường | Giá trị |
-|---|---|
-| VPC | `smartinvoice-vpc` |
-| Public IP address | ❌ Không tick Enable |
-| Instance subnets | **Private** subnets (1a + 1b) |
+| Trường            | Giá trị                       |
+| ----------------- | ----------------------------- |
+| VPC               | `smartinvoice-vpc`            |
+| Public IP address | ❌ Không tick Enable          |
+| Instance subnets  | **Private** subnets (1a + 1b) |
+
+![alt text](image-20.png)
 
 ### 15.4 Bước 4: Instance & Scaling
 
-| Trường             | Giá trị                   |
-| ------------------ | ------------------------- |
-| IMDSv1             | ✅ **Disable**            |
-| EC2 security groups| `smartinvoice-backend-sg` |
-| Environment type   | **single instance**       |
-| Instance type      | `t3.micro`                |
-| Scaling Min / Max  | `2` / `4`                 |
+| Trường              | Giá trị                   |
+| ------------------- | ------------------------- |
+| IMDSv1              | ✅ **Disable**            |
+| EC2 security groups | `smartinvoice-backend-sg` |
+| Environment type    | **Load balanced**         |
+| Instance type       | `t3.micro`                |
+| Scaling Min / Max   | `2` / `2`                 |
+
+![alt text](image-21.png)
 
 ### 15.5 Bước 5: Monitoring
 

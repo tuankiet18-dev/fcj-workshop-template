@@ -18,28 +18,32 @@ CloudFront acts as the public HTTPS gateway for the Backend API.
 
 **Console**: CloudFront → **Create distribution**
 
-| Field             | Value                   |
-| ----------------- | ----------------------- |
+| Field             | Value                        |
+| ----------------- | ---------------------------- |
 | Distribution name | `smartinvoice-backend-proxy` |
-| Distribution type | **Single website or app**|
+| Distribution type | **Single website or app**    |
 
 ### 16.2 Specify Origin
 
-| Field         | Value                                                              |
-| ------------- | ------------------------------------------------------------------ |
-| Origin type   | **Elastic Load Balancer**                                          |
+| Field         | Value                                                                                        |
+| ------------- | -------------------------------------------------------------------------------------------- |
+| Origin type   | **Elastic Load Balancer**                                                                    |
 | Origin domain | DNS Name of the **EB ALB** (e.g. `awseb-e-m-AWSEBLoa-xxxx.ap-southeast-1.elb.amazonaws.com`) |
-| Protocol      | **HTTP only**, HTTP Port: `80`                                     |
+| Protocol      | **HTTP only**, HTTP Port: `80`                                                               |
+
+![alt text](image-3.png)
 
 ### 16.3 Default Cache Behavior
 
-| Field                    | Value                                          |
-| ------------------------ | ---------------------------------------------- |
-| Viewer protocol policy   | **Redirect HTTP to HTTPS**                     |
-| Allowed HTTP methods     | **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**|
-| Cache policy             | `CachingDisabled`                              |
-| Origin request policy    | `AllViewerExceptHostHeader`                    |
-| Response headers policy  | `CORS-With-Preflight`                          |
+| Field                   | Value                                            |
+| ----------------------- | ------------------------------------------------ |
+| Viewer protocol policy  | **Redirect HTTP to HTTPS**                       |
+| Allowed HTTP methods    | **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
+| Cache policy            | `CachingDisabled`                                |
+| Origin request policy   | `AllViewerExceptHostHeader`                      |
+| Response headers policy | `CORS-With-Preflight`                            |
+
+![alt text](image.png)
 
 ### 16.4 Security & Review
 
@@ -58,35 +62,22 @@ CloudFront acts as the public HTTPS gateway for the Backend API.
 1. **Console**: AWS Amplify → **All apps** → **New app** → **Host web app**.
 2. Connect GitHub Repository `tuankiet18-dev/SMARTINVOICE-SHIELD`, select branch `main`.
 
+![alt text](image-5.png)
+
 ### 17.2 Build Settings (amplify.yml)
 
 Amplify auto-detects Vite. Verify under App settings → Build settings:
 
-```yaml
-version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm install
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: dist
-    files:
-      - "**/*"
-  cache:
-    paths:
-      - node_modules/**/*
-```
+![alt text](image-8.png)
 
 ### 17.3 Environment Variables
 
 **Console**: App settings → **Environment variables** → Add:
 
-| Key | Value |
-|---|---|
+| Key            | Value                                                                     |
+| -------------- | ------------------------------------------------------------------------- |
 | `VITE_API_URL` | CloudFront domain from Step 16 (e.g. `https://d3xxxx.cloudfront.net/api`) |
+
+![alt text](image-9.png)
 
 → After deployment, copy the **Amplify URL** and update SSM parameter `ALLOWED_ORIGINS`.

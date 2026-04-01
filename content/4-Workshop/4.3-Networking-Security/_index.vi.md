@@ -16,23 +16,25 @@ Phần này bao gồm các Bước 2–7: tạo VPC, subnets, internet gateway, 
 
 **Console**: VPC Dashboard → **Your VPCs** → **Create VPC**
 
-| Trường | Giá trị |
-|---|---|
-| Resources to create | **VPC and more** |
-| Name tag | `smartinvoice-vpc` |
-| IPv4 CIDR | `10.0.0.0/16` |
-| Tenancy | Default |
+| Trường              | Giá trị            |
+| ------------------- | ------------------ |
+| Resources to create | **VPC and more**   |
+| Name tag            | `smartinvoice-vpc` |
+| IPv4 CIDR           | `10.0.0.0/16`      |
+| Tenancy             | Default            |
+
+![alt text](image.png)
 
 ### 2.2 Tạo 4 Subnets
 
 **Console**: VPC → **Subnets** → **Create subnet** (nhấn **Add new subnet** để tạo cùng lúc)
 
-| # | Tên | AZ | CIDR |
-|---|---|---|---|
-| 1 | `smartinvoice-public-1a`  | `ap-southeast-1a` | `10.0.1.0/24` |
-| 2 | `smartinvoice-public-1b`  | `ap-southeast-1b` | `10.0.2.0/24` |
-| 3 | `smartinvoice-private-1a` | `ap-southeast-1a` | `10.0.3.0/24` |
-| 4 | `smartinvoice-private-1b` | `ap-southeast-1b` | `10.0.4.0/24` |
+| #   | Tên                       | AZ                | CIDR          |
+| --- | ------------------------- | ----------------- | ------------- |
+| 1   | `smartinvoice-public-1a`  | `ap-southeast-1a` | `10.0.1.0/24` |
+| 2   | `smartinvoice-public-1b`  | `ap-southeast-1b` | `10.0.2.0/24` |
+| 3   | `smartinvoice-private-1a` | `ap-southeast-1a` | `10.0.3.0/24` |
+| 4   | `smartinvoice-private-1b` | `ap-southeast-1b` | `10.0.4.0/24` |
 
 ### 2.3 Bật Auto-assign Public IP
 
@@ -45,7 +47,7 @@ Cho **mỗi public subnet**: Actions → Edit subnet settings → ✅ Enable aut
 **Console**: VPC → **Internet Gateways** → **Create internet gateway**
 
 | Name tag | `smartinvoice-igw` |
-|---|---|
+| -------- | ------------------ |
 
 → **Actions** → **Attach to VPC** → `smartinvoice-vpc` → **Attach** ✅
 
@@ -57,12 +59,12 @@ Cho **mỗi public subnet**: Actions → Edit subnet settings → ✅ Enable aut
 
 **Console**: VPC → **NAT Gateways** → **Create NAT gateway**
 
-| Trường | Giá trị |
-|---|---|
-| Name | `smartinvoice-nat-gw` |
-| Subnet | `smartinvoice-public-1a` ⚠️ (phải ở Public Subnet!) |
-| Connectivity | Public |
-| Elastic IP | Click **Allocate Elastic IP** |
+| Trường       | Giá trị                                             |
+| ------------ | --------------------------------------------------- |
+| Name         | `smartinvoice-nat-gw`                               |
+| Subnet       | `smartinvoice-public-1a` ⚠️ (phải ở Public Subnet!) |
+| Connectivity | Public                                              |
+| Elastic IP   | Click **Allocate Elastic IP**                       |
 
 Chờ status `Available` (2–3 phút).
 
@@ -74,8 +76,8 @@ Chờ status `Available` (2–3 phút).
 
 **Console**: VPC → **Route Tables** → **Create route table**
 
-| Tên | VPC |
-|---|---|
+| Tên                      | VPC                |
+| ------------------------ | ------------------ |
 | `smartinvoice-public-rt` | `smartinvoice-vpc` |
 
 **Routes** → Edit → Add: `0.0.0.0/0` → Target: `smartinvoice-igw`
@@ -84,8 +86,8 @@ Chờ status `Available` (2–3 phút).
 
 ### 5.2 Private Route Table
 
-| Tên | VPC |
-|---|---|
+| Tên                       | VPC                |
+| ------------------------- | ------------------ |
 | `smartinvoice-private-rt` | `smartinvoice-vpc` |
 
 **Routes** → Add: `0.0.0.0/0` → Target: `smartinvoice-nat-gw`
@@ -100,30 +102,33 @@ Chờ status `Available` (2–3 phút).
 
 ### SG 1: ALB (`smartinvoice-alb-sg`)
 
-| Inbound | Port | Source |
-|---|---|---|
-| HTTP  | 80  | `0.0.0.0/0` |
-| HTTPS | 443 | `0.0.0.0/0` |
+| Inbound | Port | Source      |
+| ------- | ---- | ----------- |
+| HTTP    | 80   | `0.0.0.0/0` |
+| HTTPS   | 443  | `0.0.0.0/0` |
+
+![alt text](image-2.png)
 
 ### SG 2: Backend (`smartinvoice-backend-sg`)
 
-| Inbound | Port | Source |
-|---|---|---|
-| Custom TCP | 80   | `smartinvoice-alb-sg` |
+| Inbound    | Port | Source                |
+| ---------- | ---- | --------------------- |
+| HTTP       | 80   | `smartinvoice-alb-sg` |
 | Custom TCP | 8080 | `smartinvoice-alb-sg` |
-| All Traffic | All | Self (same SG) |
+
+![alt text](image-3.png)
 
 ### SG 3: RDS (`smartinvoice-rds-sg`)
 
-| Inbound | Port | Source |
-|---|---|---|
+| Inbound    | Port | Source                    |
+| ---------- | ---- | ------------------------- |
 | PostgreSQL | 5432 | `smartinvoice-backend-sg` |
-| PostgreSQL | 5432 | `smartinvoice-ocr-sg` |
+| PostgreSQL | 5432 | `smartinvoice-ocr-sg`     |
 
 ### SG 4: OCR (`smartinvoice-ocr-sg`)
 
-| Inbound | Port | Source |
-|---|---|---|
+| Inbound    | Port | Source                                    |
+| ---------- | ---- | ----------------------------------------- |
 | Custom TCP | 5000 | `smartinvoice-backend-sg` (Gọi trực tiếp) |
 
 > Tất cả SG: **Outbound** = All traffic → `0.0.0.0/0`
@@ -135,6 +140,7 @@ Chờ status `Available` (2–3 phút).
 Bạn cần tạo **4 IAM Roles**. Quy trình chung cho mỗi Role:
 
 **Quy trình chung tạo Role**:
+
 1. Truy cập **IAM Console** → Sidebar → **Roles** → **Create role**.
 2. **Bước 1**: Trusted entity type: `AWS service`. Chọn dịch vụ tương ứng. Nhấn **Next**.
 3. **Bước 2**: Tìm kiếm và tick các policy cần thiết. Nhấn **Next**.
@@ -153,6 +159,8 @@ Cấp quyền cho EC2 trong Backend để truy cập các tài nguyên AWS khác
   - `AmazonEC2ContainerRegistryReadOnly`
   - `CloudWatchLogsFullAccess`
 
+![alt text](image-6.png)
+
 ### 7.2 Service Role cho EB (**aws-elasticbeanstalk-service-role**)
 
 Cho phép Elastic Beanstalk thay mặt bạn gọi các dịch vụ AWS.
@@ -161,6 +169,8 @@ Cho phép Elastic Beanstalk thay mặt bạn gọi các dịch vụ AWS.
 - **Policies** (AWS tự động gắn):
   - `AWSElasticBeanstalkEnhancedHealth`
   - `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
+
+![alt text](image-7.png)
 
 ### 7.3 ECS Execution Role (**ecsTaskExecutionRole**)
 

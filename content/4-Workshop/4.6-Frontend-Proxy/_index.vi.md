@@ -18,28 +18,32 @@ CloudFront đóng vai trò làm cổng HTTPS công khai cho Backend API.
 
 **Console**: CloudFront → **Create distribution**
 
-| Trường            | Giá trị                 |
-| ----------------- | ----------------------- |
+| Trường            | Giá trị                      |
+| ----------------- | ---------------------------- |
 | Distribution name | `smartinvoice-backend-proxy` |
-| Distribution type | **Single website or app**|
+| Distribution type | **Single website or app**    |
 
 ### 16.2 Cấu hình Origin
 
-| Trường        | Giá trị                                                            |
-| ------------- | ------------------------------------------------------------------ |
-| Origin type   | **Elastic Load Balancer**                                          |
+| Trường        | Giá trị                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| Origin type   | **Elastic Load Balancer**                                                                   |
 | Origin domain | DNS Name của **EB ALB** (Ví dụ: `awseb-e-m-AWSEBLoa-xxxx.ap-southeast-1.elb.amazonaws.com`) |
-| Protocol      | **HTTP only**, HTTP Port: `80`                                     |
+| Protocol      | **HTTP only**, HTTP Port: `80`                                                              |
+
+![alt text](image-2.png)
 
 ### 16.3 Default Cache Behavior
 
-| Trường                   | Giá trị                                        |
-| ------------------------ | ---------------------------------------------- |
-| Viewer protocol policy   | **Redirect HTTP to HTTPS**                     |
-| Allowed HTTP methods     | **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**|
-| Cache policy             | `CachingDisabled`                              |
-| Origin request policy    | `AllViewerExceptHostHeader`                    |
-| Response headers policy  | `CORS-With-Preflight`                          |
+| Trường                  | Giá trị                                          |
+| ----------------------- | ------------------------------------------------ |
+| Viewer protocol policy  | **Redirect HTTP to HTTPS**                       |
+| Allowed HTTP methods    | **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
+| Cache policy            | `CachingDisabled`                                |
+| Origin request policy   | `AllViewerExceptHostHeader`                      |
+| Response headers policy | `CORS-With-Preflight`                            |
+
+![alt text](image-1.png)
 
 ### 16.4 Bảo mật & Review
 
@@ -58,35 +62,22 @@ CloudFront đóng vai trò làm cổng HTTPS công khai cho Backend API.
 1. **Console**: AWS Amplify → **All apps** → **New app** → **Host web app**.
 2. Kết nối GitHub Repository `tuankiet18-dev/SMARTINVOICE-SHIELD`, chọn Branch `main`.
 
+![alt text](image-6.png)
+
 ### 17.2 Build Settings (amplify.yml)
 
-Amplify sẽ tự nhận diện Vite. Kiểm tra App settings → Build settings:
+Amplify sẽ tự nhận diện Vite. Kiểm tra App settings → Build settings
 
-```yaml
-version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm install
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: dist
-    files:
-      - "**/*"
-  cache:
-    paths:
-      - node_modules/**/*
-```
+![alt text](image-7.png)
 
 ### 17.3 Environment Variables
 
 **Console**: App settings → **Environment variables** → Thêm:
 
-| Key | Value |
-|---|---|
+| Key            | Value                                                                     |
+| -------------- | ------------------------------------------------------------------------- |
 | `VITE_API_URL` | Domain CloudFront từ Bước 16 (Ví dụ: `https://d3xxxx.cloudfront.net/api`) |
+
+![alt text](image-10.png)
 
 → Sau khi deploy, copy **Amplify URL** và cập nhật SSM parameter `ALLOWED_ORIGINS`.

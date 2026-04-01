@@ -76,29 +76,33 @@ docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/smartinvoice-ocr:l
 
 **Console**: ECS → Clusters → **Create**
 
-| Field          | Value              |
-| -------------- | ------------------ |
+| Field          | Value                  |
+| -------------- | ---------------------- |
 | Cluster name   | `smartinvoice-cluster` |
-| Infrastructure | **Fargate only**   |
+| Infrastructure | **Fargate only**       |
 
 ### 14.2 Create Task Definition
 
 **Console**: ECS → Task definitions → **Create new task definition**
 
-| Field           | Value                                         |
-| --------------- | --------------------------------------------- |
-| Family          | `smartinvoice-ocr-task`                       |
-| Launch type     | **AWS Fargate**                               |
-| OS/Architecture | **Linux/X86_64**                              |
-| CPU             | `2 vCPU`                                      |
-| Memory          | `4 GB`                                        |
-| Task role       | `smartinvoice-ecs-task-role`                  |
-| Execution role  | `ecsTaskExecutionRole`                        |
-| Container name  | `ocr-container`                               |
-| Image URI       | ECR URI from step 13.4                        |
-| Port            | `5000`                                        |
-| Environment     | `DEVICE=cpu`, `HOST=0.0.0.0`, `PORT=5000`     |
-| Logs            | `awslogs` → `/ecs/smartinvoice-ocr-task`      |
+![alt text](image-2.png)
+
+| Field           | Value                                     |
+| --------------- | ----------------------------------------- | --- |
+| Family          | `smartinvoice-ocr-task`                   |
+| Launch type     | **AWS Fargate**                           |
+| OS/Architecture | **Linux/X86_64**                          |
+| CPU             | `2 vCPU`                                  |
+| Memory          | `4 GB`                                    |
+| Task role       | `smartinvoice-ecs-task-role`              |
+| Execution role  | `ecsTaskExecutionRole`                    |
+| Container name  | `ocr-container`                           |
+| Image URI       | ECR URI from step 13.4                    |
+| Port            | `5000`                                    |
+| Environment     | `DEVICE=cpu`, `HOST=0.0.0.0`, `PORT=5000` |
+| Logs            | `awslogs` → `/ecs/smartinvoice-ocr-task`  | \   |
+
+![alt text](image-3.png)
 
 ### 14.3 Create Cloud Map Namespace
 
@@ -107,11 +111,13 @@ docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/smartinvoice-ocr:l
 
 **Console**: AWS Cloud Map → **Create namespace**
 
-| Field             | Value                                         |
-| ----------------- | --------------------------------------------- |
-| Namespace name    | `smartinvoice.local`                          |
-| Instance discovery| `API calls and DNS queries in VPCs` (Private) |
-| VPC               | `smartinvoice-vpc`                            |
+| Field              | Value                                         |
+| ------------------ | --------------------------------------------- |
+| Namespace name     | `smartinvoice.local`                          |
+| Instance discovery | `API calls and DNS queries in VPCs` (Private) |
+| VPC                | `smartinvoice-vpc`                            |
+
+![alt text](image-6.png)
 
 ### 14.4 Service Discovery Configuration
 
@@ -122,23 +128,33 @@ When creating the ECS Service in the next step, AWS will automatically register 
 **Console**: ECS → Clusters → `smartinvoice-cluster` → **Services** → **Create**
 
 #### A. Compute configuration
+
 - **Compute options**: **Capacity provider strategy**
-- **Strategy**: **Use custom (Advanced)** → **Fargate** (Weight: 1, Base: 0)
+- **Strategy**: **Use custom (Advanced)** → **Fargate spot** (Cost saving: 50-70%) (Weight: 1, Base: 0)
+
+![alt text](image-8.png)
 
 #### B. Deployment configuration
+
 - **Application type**: **Service**
 - **Task definition**: Family `smartinvoice-ocr-task` (LATEST)
 - **Service name**: `smartinvoice-ocr-task-service`
 - **Desired tasks**: `2`
 - **Deployment controller**: **Rolling update**
 
+![alt text](image-9.png)
+
 #### C. Networking
+
 - **VPC**: `smartinvoice-vpc`
 - **Subnets**: Select both **Private** subnets (1a, 1b)
 - **Security group**: `smartinvoice-ocr-sg`
 - **Public IP**: ❌ **Turned off** (required for Private Subnet)
 
+![alt text](image-12.png)
+
 #### D. Load balancing & Service discovery
+
 - **Load balancing**: Select 🔵 **None** (to save costs).
 - **Service discovery**:
   - **Use service discovery**: ✅ (Check this).
@@ -146,6 +162,8 @@ When creating the ECS Service in the next step, AWS will automatically register 
   - **Service name**: Enter `ocr`.
   - **DNS record type**: Select `A` record.
   - **TTL**: `15` / `60` seconds.
+
+![alt text](image-13.png)
 
 → Click **Create** ✅. Once the Service is `Running`, update the `/SmartInvoice/prod/OCR_API_ENDPOINT` parameter in SSM to `http://ocr.smartinvoice.local:5000`.
 
@@ -155,40 +173,48 @@ When creating the ECS Service in the next step, AWS will automatically register 
 
 ### 15.1 Step 1: Configure Environment
 
-| Field            | Value                                       |
-| ---------------- | ------------------------------------------- |
-| Environment tier | **Web server environment**                  |
-| Application name | `Smartinvoice-api`                          |
-| Environment name | `Smartinvoice-api-env`                      |
-| Platform         | **Docker**                                  |
-| Platform branch  | **Docker running on 64bit Amazon Linux 2023**|
-| Application code | **Sample application** (CI/CD will deploy later)|
-| Presets          | **Single instance**                         |
+| Field            | Value                                            |
+| ---------------- | ------------------------------------------------ |
+| Environment tier | **Web server environment**                       |
+| Application name | `Smartinvoice-api`                               |
+| Environment name | `Smartinvoice-api-env`                           |
+| Platform         | **Docker**                                       |
+| Platform branch  | **Docker running on 64bit Amazon Linux 2023**    |
+| Application code | **Sample application** (CI/CD will deploy later) |
+| Presets          | **Single instance**                              |
+
+![alt text](image-15.png)
 
 ### 15.2 Step 2: Configure Service Access
 
-| Field | Value |
-|---|---|
-| Service role | `aws-elasticbeanstalk-service-role` |
-| EC2 instance profile | `aws-elasticbeanstalk-ec2-role` |
+| Field                | Value                               |
+| -------------------- | ----------------------------------- |
+| Service role         | `aws-elasticbeanstalk-service-role` |
+| EC2 instance profile | `aws-elasticbeanstalk-ec2-role`     |
+
+![alt text](image-18.png)
 
 ### 15.3 Step 3: Networking
 
-| Field | Value |
-|---|---|
-| VPC | `smartinvoice-vpc` |
-| Public IP address | ❌ Do NOT enable |
-| Instance subnets | **Private** subnets (1a + 1b) |
+| Field             | Value                         |
+| ----------------- | ----------------------------- |
+| VPC               | `smartinvoice-vpc`            |
+| Public IP address | ❌ Do NOT enable              |
+| Instance subnets  | **Private** subnets (1a + 1b) |
+
+![alt text](image-19.png)
 
 ### 15.4 Step 4: Instance Traffic & Scaling
 
-| Field              | Value                     |
-| ------------------ | ------------------------- |
-| IMDSv1             | ✅ **Disable**            |
-| EC2 security groups| `smartinvoice-backend-sg` |
-| Environment type   | **single instance**       |
-| Instance type      | `t3.micro`                |
-| Scaling Min / Max  | `2` / `4`                 |
+| Field               | Value                     |
+| ------------------- | ------------------------- |
+| IMDSv1              | ✅ **Disable**            |
+| EC2 security groups | `smartinvoice-backend-sg` |
+| Environment type    | **Load balanced**         |
+| Instance type       | `t3.micro`                |
+| Scaling Min / Max   | `2` / `2`                 |
+
+![alt text](image-21.png)
 
 ### 15.5 Step 5: Monitoring
 

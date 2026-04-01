@@ -6,21 +6,46 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-During my internship with the **SmartInvoice Shield** project from January 2026 to March 2026, I had the opportunity to learn and apply industry-leading AWS Cloud services to a real-world invoice management solution.  
+During my internship with the **SmartInvoice Shield** project from January 2026 to April 2026, I had the opportunity to learn and apply industry-leading AWS Cloud services to a real-world invoice management solution.  
 I was directly involved in building core infrastructure (VPC, ASG, RDS), integrating the AI OCR pipeline, and optimizing the system for a production-ready environment.
+
+### Key Contributions & Technical Highlights
+
+**1. Infrastructure Architecture & Cloud Native**
+
+- Directly participated in designing and building the core infrastructure on AWS, including the setup of VPC, Auto Scaling Groups (ASG), and Amazon RDS to ensure production readiness.
+- Designed the system using an Event-Driven Architecture, combining Amazon SQS, Amazon ECS Fargate Spot, and RDS to optimize performance and operational costs.
+- Mastered and flexibly applied the AWS ecosystem, including IAM, S3, and Cognito, to meet strict security standards.
+
+**2. Backend Development (.NET 9) & Business Logic**
+
+- Taking on the role of Backend Lead, I directly designed and implemented the core business logic of the system.
+- Successfully integrated all AWS infrastructure services with the backend system developed in .NET 9.
+- Built a Role-Based Access Control (RBAC) system, implemented anti-spoofing checks, and multi-layer validation to ensure the integrity of the data flow.
+- Applied Python's Boto3 library to automate infrastructure management tasks.
+
+**3. System Optimization & Troubleshooting**
+
+- Successfully integrated and optimized the AI OCR pipeline into the project.
+- Resolved complex issues related to OCR latency, SQS integration, and deployment errors on the Elastic Beanstalk environment.
+- Proactively proposed and built an AI Fallback logic to handle memory errors, significantly improving system reliability.
+- Refactored the Frontend upload logic using parallel polling and adjusted the Worker's SemaphoreSlim for smoother batch processing to optimize the asynchronous workflow.
+- Proactively proposed using AWS Cloud Map to optimize system costs and ensure safe database migrations.
+
+### Self-Assessment
 
 To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
 
-| No. | Criteria | Evaluation | Comments |
-| --- | --- | --- | --- |
-| 1 | **Professional Knowledge** | ✅ Good | Mastered the AWS ecosystem (IAM, VPC, S3, SQS, RDS, Cognito) and successfully integrated them with a .NET 9 backend. |
-| 2 | **Learning Ability** | ✅ Good | Rapidly acquired new Cloud Native technologies, optimized AI pipelines, and automated infrastructure using Boto3. |
-| 3 | **Proactiveness** | ✅ Good | Actively proposed cost-optimization solutions (Cloud Map) and enhanced system reliability (AI Fallback logic). |
-| 4 | **Discipline** | ✅ Fair | Strictly adhered to the project schedule and deployment processes, maintaining detailed weekly worklogs. |
-| 5 | **Communication** | ✅ Fair | Clearly presented technical solutions, provided timely progress reports, and collaborated effectively with the project team. |
-| 6 | **Teamwork** | ✅ Good | Collaborated efficiently across Backend, AI, and Cloud tracks to ensure smooth and synchronized system operations. |
-| 7 | **Problem Solving** | ✅ Good | Effectively resolved complex Elastic Beanstalk deployment issues, optimized OCR latency, and managed secure database migrations. |
-| 8 | **Project Contribution** | ✅ Good | Successfully built a stable, highly secure, and scalable SmartInvoice Shield system on the AWS environment. |
+| No. | Criteria                   | Evaluation | Comments                                                                                                                         |
+| --- | -------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Professional Knowledge** | ✅ Good    | Mastered the AWS ecosystem (IAM, VPC, S3, SQS, RDS, Cognito) and successfully integrated them with a .NET 9 backend.             |
+| 2   | **Learning Ability**       | ✅ Good    | Rapidly acquired new Cloud Native technologies, optimized AI pipelines, and automated infrastructure using Boto3.                |
+| 3   | **Proactiveness**          | ✅ Good    | Actively proposed cost-optimization solutions (Cloud Map) and enhanced system reliability (AI Fallback logic).                   |
+| 4   | **Discipline**             | ✅ Fair    | Strictly adhered to the project schedule and deployment processes, maintaining detailed weekly worklogs.                         |
+| 5   | **Communication**          | ✅ Fair    | Clearly presented technical solutions, provided timely progress reports, and collaborated effectively with the project team.     |
+| 6   | **Teamwork**               | ✅ Good    | Collaborated efficiently across Backend, AI, and Cloud tracks to ensure smooth and synchronized system operations.               |
+| 7   | **Problem Solving**        | ✅ Good    | Effectively resolved complex Elastic Beanstalk deployment issues, optimized OCR latency, and managed secure database migrations. |
+| 8   | **Project Contribution**   | ✅ Good    | Successfully built a stable, highly secure, and scalable SmartInvoice Shield system on the AWS environment.                      |
 
 ### Needs Improvement
 
