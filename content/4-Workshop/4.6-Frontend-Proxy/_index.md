@@ -1,12 +1,12 @@
 ---
-title: "Frontend & CloudFront Proxy"
+title: "Frontend, Proxy & Route 53"
 date: 2024-01-01
 weight: 6
 chapter: false
 pre: " <b> 4.6. </b> "
 ---
 
-This section covers Steps 16–17: configuring CloudFront as an HTTPS proxy for the Backend API, and deploying the React frontend on AWS Amplify.
+This section covers Steps 16–18: configuring CloudFront as an HTTPS proxy for the Backend API, deploying the React frontend on AWS Amplify, and mapping a custom domain with Route 53.
 
 ---
 
@@ -81,3 +81,18 @@ Amplify auto-detects Vite. Verify under App settings → Build settings:
 ![alt text](image-9.png)
 
 → After deployment, copy the **Amplify URL** and update SSM parameter `ALLOWED_ORIGINS`.
+
+---
+
+## Step 18: Configure Custom Domain (Route 53)
+
+After deploying the frontend on Amplify, you can optionally map a custom domain.
+
+1. **Console**: Route 53 → **Hosted zones**
+2. Ensure you have a registered domain or create a new Hosted Zone.
+3. **Console**: AWS Amplify → App settings → **Domain management** → **Add domain**
+4. Enter your custom domain and click **Configure domain**.
+5. Amplify will automatically generate SSL certificates and propose CNAME validation records.
+6. Copy these CNAME records to your Route 53 Hosted Zone.
+7. Wait for DNS propagation and SSL verification (can take up to a few hours, usually ~15 mins).
+8. Once verified, your web interface will be accessible securely at your custom domain.

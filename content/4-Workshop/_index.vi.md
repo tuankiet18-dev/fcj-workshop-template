@@ -18,6 +18,7 @@ Trong workshop này, bạn sẽ tự tay triển khai toàn bộ kiến trúc Sm
 
 Hệ thống được triển khai trên **2 Availability Zones** tại `ap-southeast-1` (Singapore) và bao gồm:
 - **Frontend**: React + Vite chạy trên AWS Amplify
+- **DNS & Tên miền tùy chỉnh**: Amazon Route 53
 - **CDN / HTTPS Proxy**: CloudFront đặt trước Backend ALB
 - **Backend API**: .NET 9 trên Elastic Beanstalk (EC2 private)
 - **OCR AI Service**: Python (FastAPI + LayoutLMv3/Gemini) trên ECS Fargate
@@ -34,7 +35,7 @@ Hệ thống được triển khai trên **2 Availability Zones** tại `ap-sout
 3. [Mạng & Bảo mật](5.3-Networking-Security/)
 4. [Lưu trữ, Xác thực & Cơ sở dữ liệu](5.4-Storage-Database/)
 5. [Container Registry & Compute](5.5-Compute-Backend/)
-6. [Frontend & CloudFront Proxy](5.6-Frontend-Proxy/)
+6. [Frontend, Proxy & Route 53](5.6-Frontend-Proxy/)
 7. [CI/CD & Giám sát](5.7-CICD-Monitoring/)
 8. [Kiểm tra Tổng thể](5.8-Testing/)
 9. [Dọn dẹp Tài nguyên](5.9-Cleanup/)

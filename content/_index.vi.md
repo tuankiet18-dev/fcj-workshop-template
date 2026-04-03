@@ -19,9 +19,7 @@ chapter: false
 
 &emsp; **Ngành:** Kỹ thuật Phần mềm
 
-&emsp; **Lớp:** AWS082025
-
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
+&emsp; **Công ty thực tập:** Amazon Web Services Vietnam Co., Ltd.
 
 &emsp; **Vị trí thực tập:** FCJ Cloud Intern
 

@@ -8,6 +8,8 @@ pre: " <b> 4.1. </b> "
 
 ## System Architecture Diagram
 
+![alt text](image.png)
+
 ## Subnet Table
 
 | Subnet                    | CIDR          | AZ  | Type    | Contains                         |
@@ -38,9 +40,10 @@ pre: " <b> 4.1. </b> "
 | 15   | Deploy Backend (Elastic Beanstalk)   |
 | 16   | Configure HTTPS (CloudFront)         |
 | 17   | Deploy Frontend (Amplify)            |
-| 18   | CI/CD (GitHub Actions)               |
-| 19   | CloudWatch Monitoring                |
-| 20   | End-to-End Verification              |
+| 18   | Configure Custom Domain (Route 53)   |
+| 19   | CI/CD (GitHub Actions)               |
+| 20   | CloudWatch Monitoring                |
+| 21   | End-to-End Verification              |
 
 ## Estimated Monthly Costs
 
@@ -52,6 +55,3 @@ pre: " <b> 4.1. </b> "
 | NAT Gateway    | 1 zone + data        | ~$35             |
 | ALB (Backend)  | 1 ALB                | ~$18             |
 | **TOTAL**      |                      | **~$116**        |
-
-> [!TIP]
-> **Cost Optimization**: The system uses **AWS Cloud Map** (Service Discovery) for Backend-to-OCR communication instead of an Internal Load Balancer, saving approximately ~$18/month while maintaining high performance and reliability.

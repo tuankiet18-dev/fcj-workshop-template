@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Bài thu hoạch "AWS re:Invent Recap HCMC 2026"
+# AWS re:Invent Recap HCMC 2026
 
 ### Mục Đích Của Sự Kiện
 

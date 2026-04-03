@@ -19,8 +19,6 @@ chapter: false
 
 &emsp; **Major:** Software Engineering
 
-&emsp; **Class:** AWS082025
-
 &emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
 &emsp; **Internship Position:** FCJ Cloud Intern

@@ -8,6 +8,8 @@ pre: " <b> 4.1. </b> "
 
 ## Sơ Đồ Kiến Trúc Hệ Thống
 
+![alt text](image.png)
+
 ## Bảng Subnet
 
 | Subnet                    | CIDR          | AZ  | Loại    | Chứa                             |
@@ -38,9 +40,10 @@ pre: " <b> 4.1. </b> "
 | 15   | Triển khai Backend (Elastic Beanstalk)   | 20' |
 | 16   | Cấu hình HTTPS (CloudFront)              | 15' |
 | 17   | Triển khai Frontend (Amplify)            | 10' |
-| 18   | CI/CD (GitHub Actions)                   | 10' |
-| 19   | CloudWatch Monitoring                    | 15' |
-| 20   | Kiểm tra End-to-End                      | 15' |
+| 18   | Cấu hình Tên miền tùy chỉnh (Route 53)   | 10' |
+| 19   | CI/CD (GitHub Actions)                   | 10' |
+| 20   | CloudWatch Monitoring                    | 15' |
+| 21   | Kiểm tra End-to-End                      | 15' |
 
 ## Chi Phí Ước Tính (Monthly)
 
@@ -52,6 +55,3 @@ pre: " <b> 4.1. </b> "
 | NAT Gateway    | 1 zone + data        | ~$35                |
 | ALB (Backend)  | 1 ALB                | ~$18                |
 | **TỔNG CỘNG**  |                      | **~$116**           |
-
-> [!TIP]
-> **Tiết kiệm chi phí**: Hệ thống sử dụng **AWS Cloud Map** (Service Discovery) để Backend gọi OCR thay vì dùng Internal Load Balancer, giúp tiết kiệm thêm ~$18 mỗi tháng mà vẫn đảm bảo hiệu năng và tính ổn định.

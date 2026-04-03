@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# Báo cáo tổng kết sự kiện: Platform Engineering & GenAIOps
+# FCAJ Community Day
 
 ### MỤC ĐÍCH CỦA SỰ KIỆN
 
@@ -28,18 +28,22 @@ pre: " <b> 3.2. </b> "
 ### NỘI DUNG NỔI BẬT
 
 #### Xây dựng Platform Engineering hiện đại & Định hướng nghề nghiệp
+
 - Giới thiệu về Platform Engineering và vai trò không thể thiếu trong hệ sinh thái DevOps.
 - Tìm hiểu văn hóa doanh nghiệp, cơ hội thực tập và tham gia phiên Q&A trực tiếp với các chuyên gia trong ngành.
 
 #### GenAIOps Essential - DevOps cho Ứng dụng GenAI
+
 - Các nguyên tắc nền tảng của DevOps trên AWS và các tài liệu học tập.
 - Ví dụ thực tế về GenAIOps cho các dự án AWS với Bedrock AgentCore Observability, EKS và Langfuse.
 
 #### Triển khai Code trong Kỷ nguyên Agentic
+
 - Phân tích các vấn đề lập trình hiện tại và giới thiệu các công cụ hỗ trợ mới.
 - Đi sâu vào Cẩm nang năng suất (Productivity Playbook) và xem demo trực tiếp cách AI hỗ trợ viết code.
 
 #### Multimodal GenAI đạt chuẩn Production trên AWS
+
 - Giới thiệu ngăn xếp ứng dụng AI mới (The New AI Application Stack).
 - Tìm kiếm đa phương thức (Multimodal Search) with Nova Embeddings.
 - Sử dụng GraphRAG để quản lý kiến thức doanh nghiệp và thiết kế luồng công việc đa tác nhân (Multi-Agent Workflows).
@@ -53,6 +57,7 @@ pre: " <b> 3.2. </b> "
 ### ỨNG DỤNG VÀO CÔNG VIỆC
 
 #### Nâng cấp dự án SmartInvoice Shield
+
 - **Tích hợp Multimodal Search với Nova Embeddings:** Cải thiện khả năng trích xuất và đối soát chéo dữ liệu từ các định dạng hóa đơn phức tạp (như ảnh chụp mờ hoặc file PDF đặc chữ).
 - **Triển khai Multi-Agent Workflows:** Áp dụng tư tưởng của các AI Agent (như mô hình OpenClaw) để xử lý từng bước độc lập trong luồng hóa đơn – ví dụ: một agent chuyên đọc OCR, một agent chuyên đối soát và phát hiện gian lận.
 - **Ứng dụng GenAIOps:** Sử dụng Bedrock AgentCore Observability và Langfuse để theo dõi hiệu suất, độ chính xác của các mô hình AI chạy ngầm, đảm bảo hệ thống vận hành ổn định.

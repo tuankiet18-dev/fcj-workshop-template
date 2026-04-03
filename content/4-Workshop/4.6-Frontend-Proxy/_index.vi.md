@@ -1,12 +1,12 @@
 ---
-title: "Frontend & CloudFront Proxy"
+title: "Frontend, Proxy & Route 53"
 date: 2024-01-01
 weight: 6
 chapter: false
 pre: " <b> 4.6. </b> "
 ---
 
-Phần này bao gồm Bước 16–17: cấu hình CloudFront làm HTTPS proxy cho Backend API, và triển khai ReactJS frontend lên AWS Amplify.
+Phần này bao gồm Bước 16–18: cấu hình CloudFront làm HTTPS proxy cho Backend API, triển khai ReactJS frontend lên AWS Amplify, và cấu hình tên miền tùy chỉnh với Route 53.
 
 ---
 
@@ -81,3 +81,18 @@ Amplify sẽ tự nhận diện Vite. Kiểm tra App settings → Build settings
 ![alt text](image-10.png)
 
 → Sau khi deploy, copy **Amplify URL** và cập nhật SSM parameter `ALLOWED_ORIGINS`.
+
+---
+
+## Bước 18: Cấu hình Tên miền tùy chỉnh (Route 53)
+
+Sau khi triển khai Frontend lên Amplify, bạn có thể thiết lập thêm một tên miền tùy chỉnh (custom domain).
+
+1. **Console**: Route 53 → **Hosted zones**
+2. Đảm bảo bạn đã đăng ký một domain từ trước hoặc đã tạo một Hosted Zone.
+3. **Console**: AWS Amplify → App settings → **Domain management** → **Add domain**
+4. Nhập tên miền tùy chỉnh của bạn và nhấn **Configure domain**.
+5. Amplify sẽ tự động tạo chứng chỉ SSL (SSL certificate) và cung cấp các bản ghi CNAME để xác thực.
+6. Sao chép và thêm các bản ghi CNAME này vào Hosted Zone trên Route 53 của bạn.
+7. Đợi DNS cập nhật và xác minh SSL (có thể mất vài giờ, thông thường ~15 phút).
+8. Sau khi xác minh thành công, giao diện web sẽ có thể truy cập an toàn qua tên miền tùy chỉnh của bạn.

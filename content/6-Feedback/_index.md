@@ -32,15 +32,15 @@ I was provided with opportunities to attend events to learn from experts and exp
 
 ### Additional Questions
 
-**What did you find most satisfying during your internship?**
+**1. What did you find most satisfying during your internship?**
 
 The most satisfying aspect was the opportunity to work directly with core AWS services (like VPC, EC2, RDS, SQS, etc.) and apply them to a real-world project like "SmartInvoice Shield". The hands-on experience and the mentorship I received were invaluable.
 
-**What do you think the company should improve for future interns?**
+**2. What do you think the company should improve for future interns?**
 
 It would be beneficial to organize more technical workshops or deep-dive sessions focusing on specific advanced AWS topics (like Serverless architectures or AI integration) to further challenge the interns.
 
-**If recommending to a friend, would you suggest they intern here? Why or why not?**
+**3. If recommending to a friend, would you suggest they intern here? Why or why not?**
 
 I would absolutely recommend this internship. It offers a perfect blend of practical technical experience, a supportive learning environment, and the chance to build a solid foundation in cloud computing.
 
@@ -48,14 +48,14 @@ I would absolutely recommend this internship. It offers a perfect blend of pract
 
 ### Suggestions & Expectations
 
-**Do you have any suggestions to improve the internship experience?**
+**1. Do you have any suggestions to improve the internship experience?**
 
 Perhaps establishing a clearer roadmap or milestones for the final project earlier in the program would help interns structure their time and efforts more efficiently over the 3 months.
 
-**Would you like to continue this program in the future?**
+**2. Would you like to continue this program in the future?**
 
 Yes, I am very interested in continuing my journey with AWS and exploring more advanced cloud solutions.
 
-**Any other comments (free sharing):**
+**3. Any other comments (free sharing):**
 
 Thank you to the FCJ team and all the mentors for their dedication and for providing such a rewarding learning experience!

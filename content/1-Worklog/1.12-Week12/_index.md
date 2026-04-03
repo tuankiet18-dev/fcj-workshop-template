@@ -1,22 +1,27 @@
 ---
 title: "Week 12 Worklog"
-date: 2026-01-01
+date: 2026-03-29
 weight: 12
 chapter: false
 ---
 
 ### Week 12 Objectives:
 
-* Asynchronous Processing: AWS SQS integration.
-* Frontend UX for async flows and smart polling.
+- **Infrastructure Optimization**: Migrate OCR service communication to AWS Cloud Map (Service Discovery) and improve ECS reliability.
+- **System Documentation**: Develop a professional Software Requirements Specification (SRS) for the SmartInvoice Shield project.
+- **Site Management**: Standardize and renumber the Hugo-based internship portfolio for better organization.
 
 ### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | --- | --- | --- |
-| 2 | **Project - Frontend Optimization & Network:**<br>• Concurrent uploads via Promise.all and semaphore control<br>• Implement Smart Polling with 5s delay and 5s intervals<br><br>**Project - Backend Worker Refactor:**<br>• Lower MaxNumberOfMessages in SQS for fair distribution<br>• Limit in-container parallelism using SemaphoreSlim(2, 2) | 23/03/2026 | 23/03/2026 |  |
-| 3 | **Project - CloudWatch & ECS Scaling:**<br>• Desynchronize SQS depth and ECS Auto Scaling alarms<br>• Reconfigure CloudWatch alarm to trigger for VisbileMessages >= 2<br><br>**Project - AI Fallback & ECS Upgrade:**<br>• Trace and fix Gemini rate limit (HTTP 429) & OOM fallback issues<br>• Upgrade ECS task size to 2 vCPU / 8 GB RAM<br>• Roll out zero-downtime service update | 24/03/2026 | 24/03/2026 |  |
+
+| Day | Task                                                                                                                                                                                                                     | Start Date | Completion Date | Reference Material |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ------------------ |
+| 1   | **Project - OCR Pipeline Stability:**<br>• Configure LayoutLMv3 fallback for Gemini API rate limits (429 errors)<br>• Optimize ECS Task definition with safetensors and increased memory                                 | 30/03/2026 | 30/03/2026      |                    |
+| 2   | **Project - AWS Architecture & Sync:**<br>• Migrate OCR communication from Internal ALB to AWS Cloud Map (Service Discovery)<br>• Resolve OcrWorkerService sync issue where deleted drafts caused UI errors              | 31/03/2026 | 31/03/2026      |                    |
+| 3   | **Documentation - Portfolio & Events:**<br>• Refactor internship site (removed BlogsTranslated, renumbered sections)<br>• Finalized "AWS re:Invent Recap HCMC 2026" event report<br>• Drafted Internship Self-Evaluation | 01/04/2026 | 01/04/2026      |                    |
+| 4   | **Documentation - SRS Authoring:**<br>• Authored comprehensive IEEE 830-1998 SRS for SmartInvoice Shield<br>• Integrated Vietnamese legal requirements (Circular 78/2021/TT-BTC)                                         | 02/04/2026 | 02/04/2026      |                    |
 
 ### Week 12 Achievements:
 
-* Completed the planned tasks for the week.
-* Gained deeper understanding of the integrated AWS services.
+- **Network Optimization**: Successfully reduced costs and improved internal latency by switching to Cloud Map instead of an internal Load Balancer.
+- **Professional Output**: Delivered a high-quality SRS document that serves as the blueprint for SmartInvoice Shield development.
+- **Streamlined Portfolio**: Improved the readability and professional look of the internship documentation.
