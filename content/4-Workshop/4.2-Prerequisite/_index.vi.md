@@ -81,3 +81,56 @@ IAM User của bạn cần có các quyền sau (hoặc dùng tài khoản admin
 - `AmazonSSMFullAccess`
 - `CloudFrontFullAccess`
 - `IAMFullAccess`
+
+## 5. Chuẩn Bị Môi Trường Local (Development)
+
+Dự án sử dụng **tách môi trường Dev/Prod**. Cấu hình production nằm trên AWS Parameter Store và không bao giờ xuất hiện trong source code.
+
+### Cấu trúc file cấu hình
+
+| File | Git | Mục đích |
+|------|:---:|----------|
+| `SmartInvoice.API/appsettings.json` | ✅ Push | Config chung (không chứa secrets) |
+| `SmartInvoice.API/appsettings.Development.json` | 🔒 Ignore | Config dev local (Cognito, DB, VnPay) |
+| `SmartInvoice.API/.env` | 🔒 Ignore | AWS credentials cho local dev |
+| `SmartInvoice.API/.env.example` | ✅ Push | Template cho developer mới |
+| `SmartInvoice.Frontend/.env.development` | 🔒 Ignore | API URL localhost |
+| `SmartInvoice.Frontend/.env.production` | ✅ Push | API URL production |
+| `SmartInvoice.Frontend/.env.example` | ✅ Push | Template cho developer mới |
+
+### Cách khởi tạo
+
+```bash
+# 1. Copy templates
+cp SmartInvoice.API/.env.example SmartInvoice.API/.env
+cp SmartInvoice.Frontend/.env.example SmartInvoice.Frontend/.env.development
+
+# 2. Tạo file appsettings.Development.json theo mẫu
+```
+
+Nội dung mẫu `appsettings.Development.json`:
+
+```json
+{
+  "Logging": { "LogLevel": { "Default": "Debug" } },
+  "COGNITO_USER_POOL_ID": "<your-pool-id>",
+  "COGNITO_CLIENT_ID": "<your-client-id>",
+  "COGNITO_CLIENT_SECRET": "<your-client-secret>",
+  "POSTGRES_HOST": "localhost",
+  "POSTGRES_PORT": "5433",
+  "POSTGRES_DB": "SmartInvoiceDb",
+  "POSTGRES_USER": "postgres",
+  "POSTGRES_PASSWORD": "<your-password>",
+  "OCR_API_ENDPOINT": "http://localhost:5000",
+  "ALLOWED_ORIGINS": "http://localhost:3000",
+  "VnPay": {
+    "TmnCode": "<your-vnpay-tmncode>",
+    "HashSecret": "<your-vnpay-hashsecret>",
+    "ReturnUrl": "http://localhost:3000/app/payment/result"
+  }
+}
+```
+
+> [!IMPORTANT]
+> Khi chạy `dotnet run` ở Development mode, ứng dụng **tự động** load `appsettings.Development.json` và **KHÔNG** kết nối AWS Parameter Store. Khi deploy lên Production (Elastic Beanstalk), ứng dụng **tự động** load từ Parameter Store.
+

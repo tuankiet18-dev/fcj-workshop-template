@@ -113,10 +113,15 @@ App clients → `smart-invoice` → **Edit** → ✅ **ALLOW_USER_PASSWORD_AUTH*
 | `/SmartInvoice/prod/POSTGRES_DB`           | String           | `SmartInvoiceDb`                                |
 | `/SmartInvoice/prod/POSTGRES_USER`         | String           | `postgres`                                      |
 | `/SmartInvoice/prod/POSTGRES_PASSWORD`     | **SecureString** | (RDS password)                                  |
-| `/SmartInvoice/prod/AWS_REGION`            | String           | `ap-southeast-1`                                |
-| `/SmartInvoice/prod/AWS_S3_BUCKET_NAME`    | String           | `smart-invoice-shield-storage`                  |
+| `/SmartInvoice/prod/BucketName`            | String           | `smart-invoice-shield-storage`                  |
 | `/SmartInvoice/prod/OCR_API_ENDPOINT`      | String           | `http://<ALB_OCR_DNS>` (cập nhật sau Bước 14.4) |
 | `/SmartInvoice/prod/ALLOWED_ORIGINS`       | String           | (cập nhật sau Bước 17)                          |
+| `/SmartInvoice/prod/VnPay/TmnCode`         | **SecureString** | VnPay Merchant Code (sandbox: `5Y4MBNDO`)       |
+| `/SmartInvoice/prod/VnPay/HashSecret`      | **SecureString** | VnPay Hash Secret (sandbox key)                 |
+| `/SmartInvoice/prod/VnPay/ReturnUrl`       | String           | `https://<YOUR_DOMAIN>/app/payment/result`      |
+
+> [!NOTE]
+> Tên tham số dùng `/` thay cho `:`. .NET SDK tự động chuyển `/SmartInvoice/prod/VnPay/TmnCode` thành key `VnPay:TmnCode`.
 
 ---
 

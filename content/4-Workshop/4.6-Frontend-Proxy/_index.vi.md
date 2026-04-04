@@ -74,9 +74,14 @@ Amplify sẽ tự nhận diện Vite. Kiểm tra App settings → Build settings
 
 **Console**: App settings → **Environment variables** → Thêm:
 
-| Key            | Value                                                                     |
-| -------------- | ------------------------------------------------------------------------- |
-| `VITE_API_URL` | Domain CloudFront từ Bước 16 (Ví dụ: `https://d3xxxx.cloudfront.net/api`) |
+| Key                        | Value                                                                      |
+| -------------------------- | -------------------------------------------------------------------------- |
+| `VITE_API_URL`             | Domain CloudFront từ Bước 16 (Ví dụ: `https://d3xxxx.cloudfront.net/api`) |
+| `AMPLIFY_MONOREPO_APP_ROOT`| `SmartInvoice.Frontend`                                                    |
+| `AMPLIFY_DIFF_DEPLOY`      | `false`                                                                    |
+
+> [!NOTE]
+> Trong source code, file `.env.production` chứa giá trị mặc định cho `VITE_API_URL`. Environment variable trên Amplify Console sẽ **ghi đè** giá trị này khi build. File `.env.development` (localhost) **không** được push lên git.
 
 ![alt text](image-10.png)
 

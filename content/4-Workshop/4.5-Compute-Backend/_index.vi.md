@@ -192,6 +192,41 @@ Khi tạo Service ở bước tiếp theo, bạn sẽ kết nối nó với Name
 | Service role         | `aws-elasticbeanstalk-service-role` |
 | EC2 instance profile | `aws-elasticbeanstalk-ec2-role`     |
 
+> [!WARNING]
+> EC2 instance profile `aws-elasticbeanstalk-ec2-role` cần được gắn thêm **IAM policy** cho Cognito Admin và SSM:
+>
+> Vào **IAM → Roles → `aws-elasticbeanstalk-ec2-role`** → **Add permissions → Create inline policy** (JSON):
+> ```json
+> {
+>   "Version": "2012-10-17",
+>   "Statement": [
+>     {
+>       "Effect": "Allow",
+>       "Action": [
+>         "cognito-idp:AdminCreateUser",
+>         "cognito-idp:AdminDeleteUser",
+>         "cognito-idp:AdminDisableUser",
+>         "cognito-idp:AdminEnableUser",
+>         "cognito-idp:AdminUpdateUserAttributes",
+>         "cognito-idp:AdminConfirmSignUp",
+>         "cognito-idp:AdminGetUser"
+>       ],
+>       "Resource": "arn:aws:cognito-idp:ap-southeast-1:<ACCOUNT_ID>:userpool/*"
+>     },
+>     {
+>       "Effect": "Allow",
+>       "Action": [
+>         "ssm:GetParametersByPath",
+>         "ssm:GetParameter",
+>         "ssm:GetParameters"
+>       ],
+>       "Resource": "arn:aws:ssm:ap-southeast-1:<ACCOUNT_ID>:parameter/SmartInvoice/*"
+>     }
+>   ]
+> }
+> ```
+> Đặt tên policy: `SmartInvoice-CognitoAdmin-SSM-Policy`
+
 ![alt text](image-17.png)
 
 ### 15.3 Bước 3: Mạng
