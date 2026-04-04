@@ -19,6 +19,8 @@ chapter: false
 
 &emsp; **Ngành:** Kỹ thuật Phần mềm
 
+&emsp; **Lớp:** SE194624
+
 &emsp; **Công ty thực tập:** Amazon Web Services Vietnam Co., Ltd.
 
 &emsp; **Vị trí thực tập:** FCJ Cloud Intern
