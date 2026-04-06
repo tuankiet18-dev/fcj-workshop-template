@@ -32,10 +32,10 @@ During my internship, I participated in three events. Each one was a memorable e
 
 ### [Event 3](3.3-Event3/)
 
-&emsp;**Event Name:** AWS First Cloud Journey (FCJ) AI
+&emsp;**Event Name:** CLOUD MASTERY 2 - DEVOPS FOR FRESHER
 
 &emsp;**Date & Time:** 09:00, April 4th, 2026
 
-&emsp;**Location:** Swinburne University of Technology / FPT University, Ho Chi Minh City
+&emsp;**Location:** FPT University, Ho Chi Minh City
 
 &emsp;**Role:** Attendee

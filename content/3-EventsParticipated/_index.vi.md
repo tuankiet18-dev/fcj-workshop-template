@@ -30,10 +30,10 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 
 ### [Event 3](3.3-Event3/)
 
-&emsp;**Tên sự kiện:** AWS First Cloud Journey (FCJ) AI
+&emsp;**Tên sự kiện:** CLOUD MASTERY 2 - DEVOPS FOR FRESHER
 
 &emsp;**Thời gian:** 09:00 ngày 04/04/2026
 
-&emsp;**Địa điểm:** Swinburne University of Technology / FPT University, TP. Hồ Chí Minh
+&emsp;**Địa điểm:** FPT University, TP. Hồ Chí Minh
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự
