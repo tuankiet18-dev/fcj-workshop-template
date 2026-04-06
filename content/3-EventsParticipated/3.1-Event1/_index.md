@@ -16,7 +16,6 @@ pre: " <b> 3.1. </b> "
 
 ### Speakers
 
-- **Prapti Gupta** - AWS Speaker & Expert (Led the session on Vector Database on S3).
 - Solutions Architects from AWS Vietnam.
 
 ### Key Highlights
