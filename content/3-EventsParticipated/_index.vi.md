@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+Trong quá trình thực tập, em đã tham gia 4 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
 
 ### [Event 1](3.1-Event1/)
 
@@ -33,6 +33,16 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 &emsp;**Tên sự kiện:** CLOUD MASTERY 2 - DEVOPS FOR FRESHER
 
 &emsp;**Thời gian:** 09:00 ngày 04/04/2026
+
+&emsp;**Địa điểm:** FPT University, TP. Hồ Chí Minh
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự
+
+### [Event 4](3.4-Event4/)
+
+&emsp;**Tên sự kiện:** CLOUD MASTERY 3 - NETWORKING & SECURITY
+
+&emsp;**Thời gian:** 09:00 ngày 11/04/2026
 
 &emsp;**Địa điểm:** FPT University, TP. Hồ Chí Minh
 

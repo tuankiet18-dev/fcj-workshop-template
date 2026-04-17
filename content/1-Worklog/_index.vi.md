@@ -20,6 +20,8 @@ pre: " <b> 1. </b> "
 - **Tuần 10:** [**Hiện đại hóa UI/UX.** Hiện đại hóa giao diện ứng dụng bằng Tailwind CSS, Ant Design và thiết kế lại luồng Auth.](1.10-week10/)
 - **Tuần 11:** [**Tinh chỉnh Hiệu năng.** Tối ưu hóa pipeline AI OCR để giảm độ trễ và hỗ trợ xử lý hàng loạt khối lượng lớn.](1.11-week11/)
 - **Tuần 12:** [**Khả năng Phục hồi.** Hoàn thiện logic AI Fallback và khả năng mở rộng trong sản xuất dự án SmartInvoice Shield.](1.12-week12/)
+- **Tuần 13:** [**Toàn vẹn Dữ liệu & Kịch bản.** Thực hiện xử lý lỗi Fatal nghiêm ngặt và viết kịch bản thuyết trình kỹ thuật.](1.13-week13/)
+- **Tuần 14:** [**Bàn giao Cuối kỳ.** Hoàn thiện sơ đồ kiến trúc, tích hợp CI/CD và sẵn sàng thuyết trình bảo vệ dự án.](1.14-week14/)
 
 ### Tóm tắt Tiến độ:
 
@@ -28,4 +30,4 @@ Quá trình thực tập có thể được phân tích qua bốn giai đoạn c
 1. **Giai đoạn 1 (Tuần 1-4): Nền tảng Đám mây.** Thiết lập mạng và lưu trữ cơ sở.
 2. **Giai đoạn 2 (Tuần 5-8): Phát triển Cốt lõi.** Xây dựng logic backend chức năng và các lớp bảo mật.
 3. **Giai đoạn 3 (Tuần 9-11): Tối ưu hóa.** Tối ưu hóa hiệu năng và khả năng mở rộng.
-4. **Giai đoạn 4 (Tuần 12): Phục hồi & Hoàn thiện.** Đảm bảo hệ thống sẵn sàng sản xuất và chịu lỗi tốt.
+4. **Giai đoạn 4 (Tuần 12-14): Phục hồi, Hoàn thiện & Thuyết trình.** Đảm bảo hệ thống sẵn sàng sản xuất, tài liệu đầy đủ và thuyết trình thành công.

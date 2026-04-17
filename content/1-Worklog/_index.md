@@ -20,6 +20,8 @@ pre: " <b> 1. </b> "
 - **Week 10:** [**UI/UX Modernization.** Modernizing the application interface using Tailwind CSS, Ant Design, and redesigned auth flows.](1.10-week10/)
 - **Week 11:** [**Performance Tuning.** Optimizing AI OCR pipelines to reduce latency and supporting high-volume batch processing.](1.11-week11/)
 - **Week 12:** [**System Resilience.** Finalizing AI Fallback logic and production-ready scaling for the SmartInvoice Shield project.](1.12-week12/)
+- **Week 13:** [**Data Integrity & Scripting.** Implementing robust fatal error handling and technical presentation scripting.](1.13-week13/)
+- **Week 14:** [**Final Delivery.** Architectural diagram finalization, CI/CD integration, and presentation readiness.](1.14-week14/)
 
 ### Progress Summary:
 
@@ -28,4 +30,4 @@ The internship process can be analyzed through four main phases:
 1. **Phase 1 (Week 1-4): Cloud Foundations.** Establishing networking and storage baseline.
 2. **Phase 2 (Week 5-8): Core Development.** Building functional backend logic and security layers.
 3. **Phase 3 (Week 9-11): Optimization.** Optimizing performance and scalability.
-4. **Phase 4 (Week 12): Resilience & Finalization.** Ensuring the system is production-ready and fault-tolerant.
+4. **Phase 4 (Week 12-14): Resilience, Finalization & Presentation.** Ensuring the system is production-ready, fully documented, and successfully demonstrated.

@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# AWS First Cloud Journey (FCJ) AI
+# CLOUD MASTERY 2 - DEVOPS FOR FRESHER
 
 ### EVENT PURPOSE
 

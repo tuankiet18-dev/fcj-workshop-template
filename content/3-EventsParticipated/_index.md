@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-During my internship, I participated in three events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
+During my internship, I participated in four events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
 
 ### [Event 1](3.1-Event1/)
 
@@ -35,6 +35,16 @@ During my internship, I participated in three events. Each one was a memorable e
 &emsp;**Event Name:** CLOUD MASTERY 2 - DEVOPS FOR FRESHER
 
 &emsp;**Date & Time:** 09:00, April 4th, 2026
+
+&emsp;**Location:** FPT University, Ho Chi Minh City
+
+&emsp;**Role:** Attendee
+
+### [Event 4](3.4-Event4/)
+
+&emsp;**Event Name:** CLOUD MASTERY 3 - NETWORKING & SECURITY
+
+&emsp;**Date & Time:** 09:00, April 11th, 2026
 
 &emsp;**Location:** FPT University, Ho Chi Minh City
 
